@@ -1,0 +1,98 @@
+{
+  "id": "h5",
+  "slug": "h5-machine-manufacturers-microwave-access",
+  "title": "H5 - Microwave access simulation",
+  "market_scan": {
+    "market_size_text": "The addressable pool is much wider than microwave OEMs: all industrial thermal-equipment manufacturers who could add microwave/RF modules to dryers, kilns, ovens and process lines. Adjacent markets are large — industrial dryers ~$5-8B/yr, industrial drying ovens ~$3B/yr — versus only ~$1.4-1.6B/yr currently captured by dedicated microwave equipment, which quantifies the headroom for microwave integration. The simulation/software slice an 'access' product could initially capture is small (~$20-100M/yr) but the mechanism is catalytic: lowering the barrier to entry expands the microwave market itself. Macro tailwind: process-heat electrification/decarbonization programs (US DOE Industrial Heat Shot, EU projects) explicitly name microwave systems.",
+    "regions": {
+      "Europe": "~$1.5-3B adjacent thermal-equipment market (dryers+ovens subset); strong OEM density in DE/IT/FR",
+      "Asia": "~$3-4B adjacent market (~40%+ of dryer demand; largest OEM pool, mostly mid-tier)",
+      "America": "~$1.5-2.5B adjacent market",
+      "Africa": "~$0.3-0.6B (incl. Middle East; mostly importers/integrators)"
+    },
+    "target_customers_text": "Thousands of industrial equipment OEMs and system integrators (drying, thermal processing, food/pharma/chemical machinery) have no in-house RF/microwave competence. The motivated subset — those facing electrification pressure or customer pull for faster/volumetric heating — is realistically ~300-1,000 companies globally. They are reachable via general process-equipment channels and OEM-component suppliers, but each sale requires substantial education: the CalNEXT market study identifies 'knowledge and awareness' alongside cost and process-integration as the primary adoption barriers. A tool alone will not convert this segment; tool + application engineering service will.",
+    "customers": {
+      "Large": ["~100-300 large equipment OEMs", "~45-55% of adjacent equipment revenue"],
+      "Medium": ["~1,000-3,000 mid-size machine builders", "~30-40%"],
+      "Small": ["~5,000-15,000 small builders/integrators", "~10-20%"]
+    },
+    "players_text": "No one sells 'microwave integration made accessible' as a product. What exists: (a) generalist EM/CFD suites at expert price/skill level (Ansys, CST, COMSOL), (b) cloud CAE platforms (SimScale, Ansys cloud) that remove the compute barrier but not the expertise barrier, (c) microwave component/generator vendors (Muegge, Sairem, Richardson, e2v) who effectively act as the integration path today via application labs and OEM supply, and (d) a fragmented layer of MW consultants and university labs. So the competitive field is indirect: ProSeed would compete with 'hire/borrow expertise' rather than with another software vendor.",
+    "players": [
+      ["Large (Ansys/Synopsys, Dassault SIMULIA, COMSOL, Altair, Siemens, cloud CAE like SimScale)", "generic multiphysics software + cloud HPC; powerful but require RF/EM specialists the target customers do not have", "~70-80% of EM-sim spend; ~0% dedicated to non-expert MW integration"],
+      ["Medium (QWED QuickWave; MW component/generator vendors Muegge, SAIREM, Richardson, e2v with application labs; microwave design consultancies)", "specialist simulation tools + de-facto 'integration service' via component supply and co-engineering", "~10-20% niche"],
+      ["Small (independent MW/EM consultants, university groups via AMPERE/IMPI networks, open-source openEMS/MEEP)", "one-off feasibility studies, contract design, free expert-level codes", "~5-10%"]
+    ],
+    "regulation": [
+      ["IEC/EN 60519-6", "International/EU", "Safety standard for industrial microwave heating installations — an OEM integrating microwave modules must meet leakage/interlock requirements; a tool with built-in compliance checks directly de-risks their first product"],
+      ["CISPR 11 / EN 55011", "International/EU", "ISM emission limits; non-expert OEMs risk building non-compliant machines — guided templates with compliant reference designs are a selling point"],
+      ["ITU Radio Regulations ISM bands", "Global, region-dependent", "Restricts operating frequencies (915 MHz mainly Region 2, 2.45 GHz worldwide); an 'access' tool should hide band-selection complexity behind target-market presets"],
+      ["Machinery Directive 2006/42/EC + EMC Directive 2014/30/EU", "EU", "CE marking obligations for machines incorporating microwave subsystems; documentation support eases OEM compliance"],
+      ["Directive 2013/35/EU", "EU", "Worker EMF exposure limits shape enclosure/applicator requirements a novice OEM must respect"]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Expert-level generalist EM/multiphysics tools (Ansys HFSS, CST, COMSOL RF)",
+        "how": "The theoretically-correct path: model applicator + product + thermal coupling; in practice requires hiring or contracting EM specialists plus $10-70k seats.",
+        "performance": "Validated accuracy; complete design freedom; combined license+expert cost easily ~$150-300k first year for a new OEM",
+        "limits": "This is the barrier, not the solution: steep learning curve, no microwave-heating defaults, and no guidance on dielectric data or ISM compliance — unusable for a first-time OEM without external help"
+      },
+      {
+        "name": "Template/app-based simulation (COMSOL Application Builder + compiled apps, QuickWave BHM projects)",
+        "how": "Experts encapsulate validated models behind simplified UIs (product dimensions, moisture, throughput → field/uniformity results); COMSOL Server/Compiler can distribute apps to non-specialists.",
+        "performance": "Proven pattern (ITW built internal MW-heating apps on COMSOL; frozen-sandwich simulator case study); reduces user skill need while keeping full-wave accuracy",
+        "limits": "Requires an expert to build each app (service-heavy); per-domain templates for industrial applicators do not exist off-the-shelf; licensing costs for app distribution add up"
+      },
+      {
+        "name": "Cloud/browser simulation platforms (SimScale, Ansys Gateway/AWS, COMSOL Server)",
+        "how": "Browser access to solvers on elastic HPC; removes workstation and license-infrastructure barriers.",
+        "performance": "On-demand compute at ~$ per run vs ~$50k seats; market analysts cite cloud delivery as a key growth driver",
+        "limits": "Solves the compute-access problem only; user still needs EM model-building expertise and material data — the actual bottleneck for non-expert OEMs"
+      },
+      {
+        "name": "Component/vendor-led integration (Muegge, SAIREM, Richardson, e2v, CPI generators + applicators + application labs)",
+        "how": "OEM buys standard generators, waveguides and applicators and relies on the component vendor's engineering support and test labs for integration.",
+        "performance": "The dominant real-world path today; vendors advertise application support across sectors; SAIREM alone cites ~5,000 machines installed",
+        "limits": "Locks the OEM into one supplier's catalogue and margins; limited physics insight into the OEM's specific product/load; vendors have no incentive to optimize outside their component envelope"
+      },
+      {
+        "name": "Consultants, university labs and feasibility testing (AMPERE/IMPI networks)",
+        "how": "Contract research: dielectric measurement, pilot trials on vendor/university equipment, bespoke applicator design.",
+        "performance": "Real expertise on demand; typical feasibility projects ~$20-100k and months of calendar time",
+        "limits": "Not scalable, knowledge does not accumulate in the OEM; each new application restarts the same learning curve"
+      },
+      {
+        "name": "Open-source EM codes (openEMS, MEEP, gprMax)",
+        "how": "Free FDTD/FEM solvers, script-driven, usable as the engine inside a guided product.",
+        "performance": "Zero license cost; adequate physics for 2.45 GHz cavities; growing validation literature",
+        "limits": "Expert-only interfaces, no heating/materials workflow, no support — not viable for target customers directly, but a viable compute backend for a ProSeed product"
+      }
+    ],
+    "why_better_text": "The barrier for non-microwave OEMs is not solver access — it is the missing expertise and the missing dielectric/compliance data. ProSeed can beat incumbents by packaging what the component vendors and consultants sell implicitly (validated applicator templates, measured dielectric database, ISM/IEC-60519-6-aware design rules) into a guided tool-plus-service product: feasibility answer in days instead of a $50k study, then a designed applicator the OEM integrates with any generator supplier. Because ProSeed owns real microwave equipment and process data, its templates start calibrated rather than generic — a structural advantage over both cloud CAE platforms and generalist EM suites for this novice segment.",
+    "key_assumptions": [
+      "The motivated buyer subset is ~300-1,000 OEMs globally, i.e., a small fraction of the ~10k+ thermal-equipment builders — reachable but education-intensive (assumed; consistent with CalNEXT's 'knowledge and awareness' barrier finding)",
+      "First-time microwave integration today costs ~$150-300k in tools+expertise before prototyping, making a sub-$50k guided product attractive (assumed from license costs ~$10-70k + specialist salaries/consulting rates)",
+      "Adjacent thermal-equipment markets (~$5-8B dryers, ~$3B drying ovens) quantify genuine integration headroom vs the ~$1.4-1.6B microwave market today (measured)",
+      "Electrification/decarbonization policy (DOE Industrial Heat Shot names microwave systems; EU microwave reactor projects) creates pull-through demand for OEM product diversification (measured)",
+      "Revenue model must be service-heavy initially (feasibility studies feeding templates); pure self-serve software is unlikely before a template+data library matures (assumed)"
+    ]
+  },
+  "sources": [
+    { "claim": "Industrial microwave heating equipment market ~$1.4-1.6B/yr (2025), ~4-6% CAGR", "url": "https://www.grandviewresearch.com/industry-analysis/industrial-microwave-heating-equipment-market" },
+    { "claim": "Industrial dryer market ~$8.2B (2025) to $11.2B (2033), APAC ~42% — scale of the adjacent OEM pool", "url": "https://www.grandviewresearch.com/industry-analysis/industrial-dryer-market-report" },
+    { "claim": "Industrial drying ovens ~$3.15B (2025); pharma/food drivers; IoT-integration trend in conventional ovens", "url": "https://dataintelo.com/report/global-industrial-drying-ovens-market" },
+    { "claim": "CalNEXT industrial microwave market study: adoption barriers = cost, process-flow integration, knowledge and awareness; TRLs and commercially available microwave technologies", "url": "https://calnext.com/wp-content/uploads/2024/11/ET23SWE0070_Industrial-Microwave-Technologies-Market-Study_Final-Report.pdf" },
+    { "claim": "DOE Industrial Heat Shot: electrification pathways explicitly include microwave systems for process heat", "url": "https://www.energy.gov/articles/doe-launches-new-energy-earthshot-cut-industrial-heating-emissions-85-percent" },
+    { "claim": "DOE/NETL microwave reactor projects to electrify industrial chemical processes incl. building microwave-specific material property databases", "url": "https://www.netl.doe.gov/node/13841" },
+    { "claim": "EM simulation software market ~$1.5-2.9B with ~10-18% CAGR; cloud deployment and AI surrogates lowering entry barriers", "url": "https://www.mordorintelligence.com/pt/industry-reports/electromagnetic-simulation-software-market" },
+    { "claim": "Enterprise EM tools ~$20k-100k+/seat; pricing structured for large engineering teams, shutting out smaller players", "url": "https://www.epsilonforge.com/post/why-em-software-so-expensive/" },
+    { "claim": "COMSOL Application Builder pattern: GUI simulator built by experts for non-simulation users in microwave heating (frozen sandwich case)", "url": "https://www.comsol.com/paper/computer-simulation-of-microwave-heating-of-initially-frozen-sandwiches-using-comsol-multiphysics-application-builder-26392" },
+    { "claim": "ITW uses COMSOL + Application Builder for microwave appliance design; simulation reduces trial-and-error experimental runs", "url": "https://www.comsol.com/story/itw-uses-multiphysics-simulation-to-cook-up-smart-microwave-oven-designs-80551" },
+    { "claim": "Component-vendor integration path: Muegge supplies generators/waveguides plus custom engineering support across sectors", "url": "https://muegge-group.com/en/" },
+    { "claim": "SAIREM: ~5,000 machines installed, 70+ countries; Nutri/Inno/Labo equipment ranges for food and industrial processing", "url": "https://www.sairem.com/microwave-radiofrequency-equipment/industrial-machines/" },
+    { "claim": "IEC/EN 60519-6 scope: industrial HF/microwave heating installation safety requirements an integrating OEM must meet", "url": "https://www.evs.ee/en/evs-en-iec-60519-6-2024" },
+    { "claim": "ITU-R SM.1056: ISM frequency allocations and radiation limits governing industrial microwave equipment", "url": "https://www.itu.int/dms_pubrec/itu-r/rec/sm/R-REC-SM.1056-0-199407-S!!PDF-E.pdf" },
+    { "claim": "AMPERE: association bridging academia/industry for microwave and RF heating applications — evidence of an active tech-transfer community", "url": "https://www.ampereeurope.org/introduction/" }
+  ]
+}

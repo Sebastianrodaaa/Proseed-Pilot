@@ -1,0 +1,137 @@
+{
+  "id": "h1",
+  "slug": "h1-pharma-continuous-solvent-removal",
+  "title": "H1 - Pharma continuous solvent removal",
+  "market_scan": {
+    "market_size_text": "The parent market for this product idea is pharmaceutical continuous-manufacturing equipment, estimated at ~$2.7B in 2025 and growing at ~10-11% CAGR toward ~$4.6B by 2030; the broader pharma drying-equipment market is ~$5.8B (2024) heading to ~$8.2B (2029). The solvent-removal slice is a niche within these: organic-solvent granulation and coating have been a minority of oral-solid-dose processes since aqueous systems largely displaced them in the 1990s, and persist mainly for moisture-sensitive APIs, functional/enteric coatings, effervescents and contained HPAPI work. Order of magnitude for the addressable niche (continuous-capable, solvent-rated drying/coating equipment): ~$0.3-0.8B globally.",
+    "regions": {
+      "Europe": "~$1.0B (largest continuous-manufacturing region in 2025, Western Europe; dense GEA/Glatt/Bohle/Syntegon install base)",
+      "Asia": "~$0.7B (fastest-growing region; India/China OSD capacity)",
+      "America": "~$0.9B (US-led; strong CM adoption push by FDA)",
+      "Africa": "~<$0.1B (minimal pharma solids manufacturing)"
+    },
+    "target_customers_text": "Buyers are solid-dose manufacturers that run or want solvent-based wet granulation/coating continuously: a subset of the ~7,100 FDA-registered drug-product manufacturing sites (~4,000+ companies, 79 countries) plus the ~400-750 solid-dose-capable CDMOs. The realistic solvent-process subset is a minority of these, concentrated among large pharma, larger CDMOs and mid-size generics in the US, EU and India. Reach is hard: capital equipment sold through long (12-36 month) pharma procurement cycles, validation burden, conservative process-engineering buyers, and sales require application-lab proof per formulation.",
+    "customers": {
+      "Large": ["~100-200 companies (top-50 pharma + large CDMOs like Lonza/Catalent/Thermo Patheon class)", "~70% of relevant equipment spend"],
+      "Medium": ["~500-1,000 companies (mid-size generics, regional CDMOs, specialty pharma)", "~20-25%"],
+      "Small": ["~1,000-3,000 companies (small generics, nutraceutical; only a minority run solvent processes)", "~5-10%"]
+    },
+    "players_text": "Roughly 10-15 credible equipment OEMs serve pharma continuous solids processing; no single dominant vendor but GEA and Glatt are the reference leaders for continuous granulation/drying lines, with Syntegon, L.B. Bohle, Romaco, ACG and Fette covering most remaining share. Nobody today sells a continuous microwave-based solvent-removal module for pharma; microwave-vacuum drying exists only in batch single-pot processors (GEA UltimaPro, Bohle VMA) and in non-pharma industrial MW dryers.",
+    "players": [
+      ["Large (GEA, Glatt, Syntegon, Romaco, ACG, Fette Compacting)", "Integrated continuous lines (GEA ConsiGma, Glatt MODCOS) with twin-screw granulation + segmented fluid-bed drying + coating; single-pot processors; batch fluid beds and drum coaters", "~60-70% combined of pharma continuous solids equipment"],
+      ["Medium (L.B. Bohle, Freund-Vector, O'Hara, Driam, Diosna, IMA, Coperion K-Tron)", "Continuous granulation/drying modules (QbCon), continuous coaters (Driaconti), lab/pilot lines, feeders", "~20-30%"],
+      ["Small (Pueschner, SAIREM, Kerone, Microdry + Chinese/Indian OEMs)", "Industrial microwave drying systems (non-pharma focus), low-cost batch dryers and coaters", "~10%"]
+    ],
+    "regulation": [
+      ["ICH Q13 Continuous Manufacturing", "Global (ICH regions incl. FDA, EMA, PMDA)", "Regulatory pathway for CM now harmonized since Nov 2022 - supports our pitch that regulators accept continuous solvent-removal unit operations; enables batch-to-continuous conversion"],
+      ["EU GMP / FDA cGMP (21 CFR 210/211) + 21 CFR Part 11 / Annex 11", "EU / US", "Equipment must be GMP-cleanable, validatable, with compliant data systems - raises development cost but also barriers protecting incumbents; we must design for PAT and cleaning validation"],
+      ["ATEX Directive 2014/34/EU (+NEC/NFPA in US)", "EU / US", "Organic-solvent vapours require explosion-rated equipment, inerting (N2) and LEL monitoring; a microwave applicator inside a solvent atmosphere is a real engineering and certification challenge"],
+      ["ICH Q3C Residual Solvents", "Global", "Defines acceptable solvent levels in drug product; drying endpoint must be demonstrably controlled - argues for in-line moisture PAT"],
+      ["EU Industrial Emissions / VOC rules + solvent recovery expectation", "EU", "Solvent vapour cannot be vented; condensation/recovery loop required - actually favors closed MW-vacuum systems over high-airflow convective dryers"],
+      ["Machinery Directive 2006/42/EC, CE marking", "EU", "Standard machine safety; microwave leakage limits (~5 mW/cm2) must be engineered into a continuous open-ended applicator"]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Batch fluid-bed dryer (hot-air convection)",
+        "how": "Heated process air fluidizes wet granules in a bowl; solvent/water evaporates from the particle surface into the airstream.",
+        "performance": "Typical 30-90 min per batch, inlet air 40-80 C; standard workhorse for aqueous granulation; for solvents needs closed N2 loop + ATEX rating, increasing capex and operating cost.",
+        "limits": "Heat reaches the core only by conduction from the surface, so drying rate falls off steeply as the surface dries; batch-only; large air volumes make solvent recovery expensive."
+      },
+      {
+        "name": "Segmented semi-continuous fluid-bed dryer (GEA ConsiGma GD class)",
+        "how": "Wet granules from a twin-screw granulator are filled sequentially into drying cells; each cell convectively dries a small batch, giving quasi-continuous flow at line level.",
+        "performance": "5-120 kg/h throughput; per-cell drying on the order of minutes to ~20 min; commercial reference for continuous OSD drying.",
+        "limits": "Still convective - solvent versions need full inert loop; moisture endpoint relies on soft sensors rather than direct in-line measurement in every cell; granule breakage/attrition in transfer documented in literature."
+      },
+      {
+        "name": "Truly continuous fluid-bed transport dryer (L.B. Bohle QbCon dryer)",
+        "how": "Granules are conveyed through a plug-flow fluidized dryer with narrow residence-time distribution for traceability and targeted rejection.",
+        "performance": "QbCon 1 R&D scale 0.5-2.5 kg/h; QbCon line 5-25 kg/h; uniform drying demonstrated over multi-hour runs; only 'true continuous' dryer marketed for pharma R&D.",
+        "limits": "Convective heat transfer limits drying speed; marketed primarily for aqueous granulation; still at R&D/small-production scale."
+      },
+      {
+        "name": "Vacuum tray dryer",
+        "how": "Static trays in a heated vacuum chamber; heat by conduction through the shelf, vapour removed by vacuum.",
+        "performance": "Low-temperature, gentle, closed solvent recovery; typical cycles 4-24 h.",
+        "limits": "Very slow - poor heat transfer into a static bed; purely batch; labour-intensive loading/unloading; not a candidate for continuous lines."
+      },
+      {
+        "name": "Single-pot processor with microwave-vacuum drying (GEA UltimaPro, L.B. Bohle VMA)",
+        "how": "High-shear mixer-granulator whose bowl is evacuated; microwave energy volumetrically heats the wet granule bed while vacuum lowers the boiling point; vapour condensed for solvent recovery.",
+        "performance": "Production-proven in GMP (e.g., UltimaPro 600 batch); microwave option cuts drying time ~2-4x vs vacuum alone; handles organic-solvent granulation with closed solvent recovery.",
+        "limits": "Batch operation only - drying happens in the granulation vessel between batches; this is the closest existing proof that MW-vacuum drying works in pharma, but it does not deliver continuous flow."
+      },
+      {
+        "name": "Continuous drum coater with hot-air drying (Driam Driaconti-T, O'Hara class)",
+        "how": "Tablets move continuously through a rotating perforated drum while coating solution is sprayed and evaporated by hot process air.",
+        "performance": "Continuous coating at production scale; integrates in Glatt MODCOS lines; solvent versions exist with ATEX design and N2 circuits.",
+        "limits": "Drying remains air-limited, forcing lower spray rates for solvent films; residence-time spread is wide; not a standalone solvent-removal module for granules."
+      }
+    ],
+    "why_better_text": "Microwave energy couples directly into the polar solvent throughout the wet granule bed, so drying no longer depends on slow surface-first convective heat transfer; under vacuum the solvent boils at low temperature, protecting heat-sensitive APIs. Published lab work shows microwave-vacuum drying of pharma granules roughly 3-10x faster than convective or vacuum-only drying, and MW-vacuum is already GMP-proven in batch single-pot processors - so the credible wedge is a genuinely continuous solvent-removal module, an engineering gap rather than a science gap. The advantage is plausible but not yet demonstrated at continuous scale: field uniformity across a moving bed (penetration depth is cm-scale at 2.45 GHz), arcing/explosion control in a flammable solvent atmosphere, and a credible in-line moisture PAT story are the make-or-break items.",
+    "key_assumptions": [
+      "Microwave-vacuum drying removes solvent from pharma granules ~3-10x faster than convective/vacuum drying at comparable product temperature (measured, lab-scale studies on HCT granules: ~9-30 min vs hours)",
+      "Polar solvents used in pharma granulation/coating (ethanol, IPA, acetone, water) absorb strongly at 2.45 GHz, enabling selective volumetric heating of the wet phase (measured, dielectric literature)",
+      "Required throughput class is ~5-120 kg/h to bolt onto ConsiGma/QbCon-class continuous lines (measured, competitor specs)",
+      "Only ~10-20% of OSD granulation/coating processes still use organic solvents - the rest moved to aqueous since the 1990s, capping niche size (assumed)",
+      "An ATEX-compliant, N2-inerted continuous MW applicator with condenser-based solvent recovery is feasible (assumed - the central engineering risk)",
+      "Continuous residence time of ~10-20 min in a microwave-vacuum module suffices for typical solvent loads (assumed, extrapolated from batch MW-vacuum data)"
+    ]
+  },
+  "sources": [
+    {
+      "claim": "Pharma continuous-manufacturing market ~$2.7B (2025), ~11% CAGR to $4.6B (2030); Western Europe largest region, APAC fastest-growing",
+      "url": "https://www.thebusinessresearchcompany.com/report/pharmaceutical-continuous-manufacturing-global-market-report"
+    },
+    {
+      "claim": "Pharmaceutical drying equipment market $5.8B (2024) to $8.18B (2029), 7.1% CAGR; segmentation by dryer type and end user",
+      "url": "https://www.researchandmarkets.com/reports/5178005/pharmaceutical-drying-equipment-market-by-type"
+    },
+    {
+      "claim": "GEA ConsiGma GD: continuous twin-screw granulation + segmented fluid-bed drying, 5-120 kg/h; solvent-capable option on GC lines",
+      "url": "https://www.gea.com/en/products/granulators/continuous-granulation-lines/consigma-granulation-drying-gd-modules/"
+    },
+    {
+      "claim": "L.B. Bohle QbCon: continuous wet granulation and true continuous drying, 0.5-2.5 kg/h (R&D) and 5-25 kg/h line; narrow RTD",
+      "url": "https://www.lbbohle.com/pharma-machines-processes/continuous-granulation-and-drying-qbcon-1"
+    },
+    {
+      "claim": "Glatt MODCOS modular continuous platform from dosing through drying, tableting and coating with PAT control",
+      "url": "https://processtechnologypharma.glatt.com/solutions/continuous-manufacturing-modcos/"
+    },
+    {
+      "claim": "GEA UltimaPro single-pot processor: vacuum drying enhanced by microwaves, GMP-proven, organic-solvent capable with solvent recovery",
+      "url": "https://www.gea.com/en/products/dryers-particle-processing/single-pot-processors/"
+    },
+    {
+      "claim": "L.B. Bohle VMA single-pot: vacuum, trailing-gas or microwave drying; ATEX-compatible; batch sizes 20-960 L",
+      "url": "https://www.lbbohle.com/pharma-machines-processes/granulation-systems/single-pot-granulator-vma"
+    },
+    {
+      "claim": "ICH Q13 adopted Nov 2022: harmonized regulatory framework for continuous manufacturing incl. batch-to-CM conversion",
+      "url": "https://database.ich.org/sites/default/files/ICH_Q13_Step4_Guideline_2022_1116.pdf"
+    },
+    {
+      "claim": "Solvent-capable coaters designed to ATEX 2014/34/EU with N2 circuits and solvent condensation (Loedige example)",
+      "url": "https://www.loedige.de/pdf/maschines/L%C3%B6dige_Coating_Systems-202406.pdf"
+    },
+    {
+      "claim": "Microwave-vacuum drying of pharma granules: shortest drying times vs hot-air and MW+hot-air tray drying; ~9-20 min vs 30-45 min for same moisture interval",
+      "url": "https://www.scielo.br/j/bjce/a/DrjFrzSFQgmYJPn5SpGzLbC/?lang=en"
+    },
+    {
+      "claim": "~7,148 FDA-registered drug-product manufacturing facilities across 79 countries - census of customer universe",
+      "url": "https://pharmaceuticalcompanies.com/countries"
+    },
+    {
+      "claim": "Aqueous coating largely displaced organic-solvent coating since the 1990s; solvent persists for moisture-sensitive APIs and specific functional coatings",
+      "url": "https://ir.lib.uwo.ca/etd/3964"
+    },
+    {
+      "claim": "ConsiGma-25 segmented fluid-bed dryer details; commercially available dryers lack thorough online moisture measurement - endpoint-control gap",
+      "url": "https://www.mdpi.com/1999-4923/13/2/293"
+    }
+  ]
+}

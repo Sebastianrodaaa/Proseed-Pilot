@@ -1,0 +1,18 @@
+{
+  "name": "proseed-dev",
+  "description": "Development marketplace for the ProSeed hypothesis-validation plugin",
+  "owner": {
+    "name": "ProSeed"
+  },
+  "plugins": [
+    {
+      "name": "proseed",
+      "description": "ProSeed hypothesis-validation method for industrial innovation: 16 steps from problem hypotheses to a validated value proposition and first product",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "ProSeed"
+      }
+    }
+  ]
+}

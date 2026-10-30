@@ -1,0 +1,126 @@
+{
+  "id": "h7",
+  "slug": "h7-mining-ore-weakening",
+  "title": "H7 - Ore weakening before comminution",
+  "market_scan": {
+    "market_size_text": "The relevant market is comminution and ore pre-treatment equipment within the broader mineral processing equipment market (~$23B/yr in 2025). Crushing, screening and grinding equipment alone is roughly $10-15B/yr worldwide, growing ~4-6%/yr, and comminution consumes ~36-50% of total mine-site energy, making it the single biggest energy consumer and the natural target for energy-saving retrofits. A microwave pre-treatment unit would sell as an add-on upstream of mills into this existing spend, plus a large opex-saving value pool: comminution electricity on a big copper concentrator is worth tens of $M/yr per site.",
+    "regions": {
+      "Europe": "~$2-3B/yr (~10% of mineral processing equipment spend)",
+      "Asia": "~$9-10B/yr (~40-45%; China, Australia, India dominant)",
+      "America": "~$5-6B/yr (~25%; Chile/Peru copper belt + North America)",
+      "Africa": "~$3-4B/yr incl. Middle East (~15%; fastest-growing, ~10% CAGR)"
+    },
+    "target_customers_text": "ICMM's Global Mining Dataset lists ~15,000 mining/processing facilities across 151 countries; the addressable subset for ore weakening is hard-rock concentrators (copper, gold, iron ore, PGM, lithium) — order of ~3,000-5,000 sites. Economic value concentrates in a few hundred large concentrators (>10 Mt/y) run by majors and mid-tiers. Large miners are reachable via OEM/EPCM channels but are conservative, capex-disciplined and slow (multi-year pilot-before-adoption cycles); medium miners are the realistic early adopters; small mines lack capex and power infrastructure for high-MW microwave units.",
+    "customers": {
+      "Large": ["~200-400 concentrators (>10 Mt/y ore)", "~70-80% of world processed tonnage"],
+      "Medium": ["~1,000-1,500 concentrators (1-10 Mt/y)", "~15-25% of tonnage"],
+      "Small": ["~3,000+ sites (<1 Mt/y)", "<10% of tonnage"]
+    },
+    "players_text": "Comminution equipment is supplied by a concentrated tier of global OEMs — Metso (#1 crushing, top-3 grinding), FLSmidth, Weir (Enduron HPGR), Sandvik, thyssenkrupp, CITIC — with the top 3 holding ~35% of crushing/screening and strong aftermarket lock-in. There is no established commercial supplier of microwave ore pre-treatment; the space is emerging (University of Nottingham + Teledyne e2v 'MicroHammer' with Rio Tinto at pilot scale; SELFRAG's high-voltage pulse machines are the closest commercialised analogue). Ore pre-treatment is therefore a contested white space the incumbents do not yet own.",
+    "players": [
+      ["Large (Metso, FLSmidth, Weir, Sandvik, thyssenkrupp, CITIC)", "Full comminution lines: gyratory/cone crushers, SAG/ball mills, HPGR, screens + aftermarket service; energy-efficient grinding packages", "top 3 ~35% of crushing/screening; ~60-70% combined in large mills"],
+      ["Medium (Koppen, TAKRAF, Tenova, Multotec, Loesche, McLanahan)", "HPGR, specialised mills, screening, regional OEM equipment and plant packages", "~20-30%"],
+      ["Small/emerging (SELFRAG HVP, Teledyne e2v MicroHammer, Lightning Machines, ore-sorting vendors)", "Novel pre-treatment/pre-concentration: high-voltage pulse fragmentation, microwave pilot systems, sensor sorting", "<5%, no dominant player"]
+    ],
+    "regulation": [
+      ["EU Industrial Emissions Directive / Mining BREF (MIN BREF)", "EU", "Specific energy consumption per tonne of ore is being adopted as a key environmental indicator for mine sites; BAT conclusions will push operators toward best-available energy-efficient comminution techniques — favours retrofit pre-treatment."],
+      ["EU ETS + Energy Efficiency Directive (Art. 11 audits)", "EU", "Carbon price (~EUR60-80/t CO2) and mandatory 4-yearly energy audits for large companies raise the cost of comminution electricity and force audited efficiency measures — strengthens the energy-saving sales case."],
+      ["EU Critical Raw Materials Act (2024)", "EU", "10% of EU extraction and 40% of processing to be domestic by 2030 with fast-tracked permitting — creates new EU concentrator builds where a Swiss technology supplier can position early."],
+      ["Australia Safeguard Mechanism", "Australia", "Large emitting facilities (incl. big mines) must reduce baseline emissions ~4.9%/yr to 2030; comminution electrification/efficiency is a primary lever on grid-powered sites."],
+      ["EMF/RF safety: CISPR 11/EN 55011 ISM limits + EU Directive 2013/35/EU", "EU/international", "High-power microwave units must be shielded to ISM leakage limits at 915 MHz/2.45 GHz and worker EMF exposure limits — adds engineering/compliance requirements to machine design but no licensing barrier."],
+      ["ICMM member net-zero 2050 commitments", "Global (voluntary)", "Major miners representing ~1/3 of the industry have committed to scope 1-2 net zero — pulls demand for step-change energy technologies beyond regulatory minimums."]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Conventional crushing + SAG/ball milling (incumbent)",
+        "how": "Multi-stage mechanical crushing followed by semi-autogenous and ball mills; breakage is indiscriminate, applied to the rock bulk rather than grain boundaries.",
+        "performance": "Total circuit ~9-23 kWh/t depending on ore hardness (Bond work index ~10-20 kWh/t); comminution = ~36-50% of mine-site energy; only ~3-5% of input energy creates new surface area.",
+        "limits": "Extremely inefficient; energy scales with ore competency; no mechanism to preferentially weaken ore — the hypothesis attacks exactly this inefficiency."
+      },
+      {
+        "name": "High-Pressure Grinding Rolls (HPGR)",
+        "how": "Ore bed compressed between counter-rotating rolls; inter-particle crushing generates micro-cracks and a weaker, finer product feeding ball mills.",
+        "performance": "~15-20% lower direct comminution energy vs SAG circuits (e.g. ~7.6-19.3 kWh/t vs 9-23 kWh/t for SABC); ~23-25% lower opex; pilot data shows up to ~60% machine-level energy reduction vs ball milling alone.",
+        "limits": "High capex, stud/roll wear, prefers dry feed, benefit is ore-dependent; still applies bulk mechanical stress rather than selective grain-boundary weakening — microwave can be complementary upstream, not a replacement."
+      },
+      {
+        "name": "High-voltage pulse pre-weakening (SELFRAG / electrodynamic fragmentation)",
+        "how": "Sub-microsecond electrical discharges pass through immersed ore, generating plasma channels that fragment particles selectively along grain boundaries.",
+        "performance": "Pre-weakening at ~1-3 kWh/t; JKMRC/Newcrest simulation of a gold-copper circuit indicated ~5 kWh/t circuit energy reduction and potential removal of pebble crushers + a 10 MW ball mill.",
+        "limits": "Batch/low-throughput machines, requires water immersion and drying, electrode wear, limited industrial adoption at mining scale — microwave treats dry ore continuously at much higher throughput."
+      },
+      {
+        "name": "Mine-to-mill / blast optimisation (explosive pre-weakening)",
+        "how": "Higher-intensity blasting and fragmentation modelling to deliver finer ROM feed, shifting size reduction from mills to cheaper explosive energy.",
+        "performance": "Typically ~5-15% comminution energy reduction achievable where applicable; explosive energy ~$0.1-0.3/t vs electricity ~10-20x costlier per equivalent breakage.",
+        "limits": "Diminishing returns, already adopted at most well-run sites, constrained by geotechnical/vibration limits — sets the bar a new pre-treatment must exceed."
+      },
+      {
+        "name": "Microwave pre-treatment (state of the art — the hypothesis technology)",
+        "how": "High-power microwave energy selectively heats high-dielectric-loss mineral phases; differential thermal expansion generates inter- and trans-granular micro-cracks that weaken the ore before it enters crushers/mills.",
+        "performance": "Nottingham/e2v pilot plant: 10-150 t/h at 10-200 kW, effective at ~0.3-3 kWh/t dose; Bond work index reduced ~3-9% (up to 30-40% in lab on amenable ores, e.g. Palabora 13.1→9.2 kWh/t in 10 s); flowsheet simulations: -9% to -24% specific comminution energy and up to +30% throughput; MicroHammer claims >20% energy reduction at 150 t/h demo, scalable to ~3,000 t/h.",
+        "limits": "Benefit highly ore/mineralogy-dependent (needs microwave-absorbing vs transparent phase contrast); unproven at full commercial scale; very short exposure (<0.1-1 s) needed for favourable net energy balance; no operating commercial installation yet."
+      }
+    ],
+    "why_better_text": "Microwave pre-treatment attacks the weakest point of the incumbent flowsheet: mills waste ~95% of their energy because ore must be stressed as a bulk solid, while microwaves deposit energy selectively at grain boundaries where breakage is most valuable, for ~0.5-2 kWh/t input. Unlike HPGR or new mills, it is an add-on installed between primary crushing and milling — it debottlenecks existing circuits (+~30% modelled throughput) and avoids multi-hundred-$M mill expansions, which is a far easier capex decision than circuit replacement. Versus its closest novel rival (HVP/electrodynamic), it treats ore dry, continuously, and has demonstrated 10-150 t/h pilots with a credible path to mining-scale throughput (e2v/Nottingham modelled ~3,000 t/h).",
+    "key_assumptions": [
+      "Comminution consumes ~36-50% of mine-site energy; the grinding mill is the largest single consumer (measured, Weir/Engeco 2021; US DOE bandwidth study: grinding ~40% of mining energy)",
+      "Microwave doses of ~0.3-1.3 kWh/t at high power density measurably weaken ore at pilot scale: A*b -7-14%, Bond work index -3-9% (measured, Nottingham pilot, 300 t processed under power)",
+      "Modelled -9% to -24% specific comminution energy and up to +30% throughput depending on ore and grind size (measured/simulated — not yet demonstrated at plant scale)",
+      "Net energy balance is favourable: ~1 kWh/t microwave input vs ~2-5 kWh/t downstream saving; requires sub-second high-power-density exposure (assumed — simulation-based, ore-dependent)",
+      "Sufficient fraction of world ores are amenable (need strong dielectric-loss contrast, e.g. sulphides/pyrite in quartz matrix); lab strength reductions range ~8-40% by ore (measured but highly variable — key risk)"
+    ]
+  },
+  "sources": [
+    {
+      "claim": "Comminution ~36-40% of mine-site energy; grinding mill largest single consumer; diesel ~46-60% of the rest",
+      "url": "https://www.ceecthefuture.org/resources/mining-energy-consumption-2021"
+    },
+    {
+      "claim": "MicroHammer: >20% copper-extraction energy reduction, +~1/3 production, 150 t/h demo, scalable to 3,000 t/h (Nottingham/e2v/Rio Tinto)",
+      "url": "https://www.nottingham.ac.uk/engineering/research/impact/research-impact-success-stories/microhammer.aspx"
+    },
+    {
+      "claim": "Pilot microwave plant 10-150 t/h, 0.3-3 kWh/t doses; A*b -7-14%, BWi -3-9%; sims -9% to -24% comminution energy, +30% throughput",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0892687517301322"
+    },
+    {
+      "claim": "Palabora copper ore: Bond work index 13.06→9.2 kWh/t after 10 s microwave at 2.6 kW; further reductions with longer exposure",
+      "url": "https://www.saimm.co.za/Journal/v100n03p197.pdf"
+    },
+    {
+      "claim": "Sub-0.1 s high-power-density exposure maximises thermal stress at grain boundaries and makes net energy balance favourable",
+      "url": "https://eprints.nottingham.ac.uk/12161/1/417230.pdf"
+    },
+    {
+      "claim": "HPGR vs SAG: 15-20% direct energy reduction, 23-25% opex reduction, 26-39% less total incl. embodied energy",
+      "url": "http://www.ceecthefuture.org/wp-content/uploads/2013/01/Daniel_711_p3523.pdf"
+    },
+    {
+      "claim": "HVP pre-weakening at 1-3 kWh/t; simulated ~5 kWh/t circuit energy reduction in gold-copper operation",
+      "url": "https://espace.library.uq.edu.au/view/UQ:345291"
+    },
+    {
+      "claim": "Mineral processing equipment market ~$22.9B (2025)→$35.6B (2035); crushers largest segment ~47%",
+      "url": "https://www.futuremarketinsights.com/reports/mineral-processing-equipment-market"
+    },
+    {
+      "claim": "ICMM Global Mining Dataset: ~15,000 mining/processing facilities, 151 countries, 47 commodities",
+      "url": "https://www.icmm.com/global-datasets/mining-metals-facilities"
+    },
+    {
+      "claim": "Crushing & screening machinery ~$6.9B (2024); top 3 OEMs ~35% share, Metso ~15%",
+      "url": "https://www.qyresearch.com/reports/4743006/crushing-and-screening-machinery"
+    },
+    {
+      "claim": "EU MIN BREF proposing specific energy consumption as key environmental indicator for mines",
+      "url": "https://bureau-industrial-transformation.jrc.ec.europa.eu/sites/default/files/2025-03/MIN%20BREF%20KoM%20Report-bref.pdf"
+    },
+    {
+      "claim": "APAC ~42% ($7.9B) and North America ~25% of mineral processing equipment market (2025)",
+      "url": "https://dataintelo.com/report/global-mineral-processing-equipment-market"
+    }
+  ]
+}

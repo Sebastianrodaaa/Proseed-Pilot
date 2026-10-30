@@ -1,0 +1,104 @@
+{
+  "id": "h9",
+  "slug": "h9-minerals-electrify-drying",
+  "title": "H9 - Electrified mineral drying",
+  "market_scan": {
+    "market_size_text": "The global industrial drying equipment market is ~$5-10B/yr depending on scope (FactMR ~$4.8B 2025; GrandView ~$8.2B 2025; SNS ~$14B 2023), with rotary dryers ~$1.3-4B of that and minerals/ores ~24% of rotary dryer demand. So the mineral drying equipment+services pool relevant here is order-of-magnitude ~$1-3B/yr globally. The underlying product markets are much larger (kaolin ~46 Mt/yr, ~$5-8B; GCC ~$12-21B; ore concentrates far bigger), and drying consumes 10-25% of industrial energy — mostly fossil-fired today. Electrification is at pilot/early-reference stage (Mondo Minerals talc 5 MW electric heater, Nordic Mining electric dryers, Fraunhofer SHS+MVR), so the 'electrified mineral drying' market itself is emerging, worth low $ hundreds of millions and policy-driven.",
+    "regions": {
+      "Europe": "~$0.3-0.8B (~20% of mineral dryer spend; strongest electrification pull from ETS/gas prices)",
+      "Asia": "~$1-2B (~40-48% share, China/India; mostly new-build, weaker electrification economics)",
+      "America": "~$0.5-1.2B (~25-30%; US IRA/DOE funding supports electrification pilots)",
+      "Africa": "~$0.1-0.3B (~5-10%, incl. Middle East; mining-driven, nascent)"
+    },
+    "target_customers_text": "A few thousand thermal-drying plants worldwide: Europe alone has ~750 processing plants and 685 mines/quarries among IMA-Europe's 250 member companies (180 Mt/yr minerals). Decision-making is concentrated in majors — Omya runs ~160 plants, Imerys ~100+ sites (48 for CaCO3 alone) — so a handful of corporate engineering/sustainability teams controls a large share of the reachable base; below that sits a long tail of regional and single-quarry operators that are cheap to ignore and hard to sell to. Ore concentrators (copper, iron, nickel laterite, rutile/garnet) add several hundred single-line drying assets with high per-site value. Buyers respond to carbon cost (EU ETS), gas-price volatility, and net-zero commitments; procurement cycles are slow (12-24 months) and references matter.",
+    "customers": {
+      "Large": ["~30-50 producer groups worldwide, ~500-800 drying plants (~)", "~50-60% of dried mineral tonnage (~)"],
+      "Medium": ["~300-500 regional producers, ~1,000-2,000 plants (~)", "~30% of tonnage (~)"],
+      "Small": ["~1,000-3,000 single-site quarry/processors (~)", "~10-15% of tonnage (~)"]
+    },
+    "players_text": "Incumbent thermal dryer supply is moderately concentrated at the top (top-5 rotary-dryer OEMs ~35-52% of revenue depending on report) but fragmented below, with strong regional and niche OEMs plus aggressive Chinese suppliers. None of the large OEMs leads in electric/microwave drying — the dielectric niche is a field of SMEs (SAIREM, Pueschner, Cellencor, Ferrite/IMS, Muegge, Fricke & Mallah) offering 6-300 kW modules, and utilities/ESCOs (e.g. Nevel) are entering electrification-as-a-service. Whitespace: no dominant MW-scale electric dryer vendor for bulk minerals yet.",
+    "players": [
+      ["Large (Andritz, FLSmidth, Metso, ThyssenKrupp, GEA)", "turnkey rotary/fluid-bed/flash dryer lines integrated with grinding, mostly gas/oil-fired; growing service/efficiency-retrofit offers", "~35-50% of new mineral dryer revenue (~)"],
+      ["Medium (Allgaier, Comessa, Schenck, Carrier Vibrating, FEECO, Hazemag, Mitchell, Louisville, Buehler, Chinese OEMs)", "standard and custom rotary/FBD dryers, regional service, price-competitive", "~30-40% (~)"],
+      ["Small electric/dielectric niche (SAIREM, Pueschner, Cellencor, Ferrite/IMS, Muegge; ESCOs like Nevel)", "kW-to-300 kW microwave/RF dryers, electric air/SHS heating, electrification projects", "<5-10% today, emerging (~)"]
+    ],
+    "regulation": [
+      ["EU ETS (Directive 2003/87/EC, reformed 2023)", "EU", "Dryers are explicitly listed combustion units in Annex I; installations >20 MWth pay per tCO2 (~EUR60-90/t recently). Electrifying drying removes the exposure directly."],
+      ["CBAM + free-allocation phase-out 2026-2034", "EU", "Free allowances shrink for CBAM sectors and benchmarks tighten elsewhere, raising the effective carbon cost of gas-fired drying for EU mineral producers."],
+      ["Medium Combustion Plants Directive 2015/2193 & IED", "EU", "Gas burners of 1-50 MW need permits and NOx/SOx/dust limits; electric heating exits combustion permitting entirely, simplifying new lines."],
+      ["EU 2040 climate target / Net-Zero Industry Act", "EU", "Communication targets ~80% fossil-fuel cut by 2040; process-heat electrification is a named lever and benefits from NZIA/Innovation Fund support."],
+      ["Energy Efficiency Directive (EU) 2023/1791", "EU", "Mandatory audits/energy-management systems flag drying (10-25% of industrial energy) as a priority action at every large mineral site."],
+      ["National & US incentives (Germany EEW/carbon contracts, EU Innovation Fund; US IRA 48C, DOE industrial demos)", "EU, DE, US", "Subsidies and contracts-for-difference specifically fund switching fossil process heat to electric — de-risks customer capex for an electric dryer."]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Direct-fired rotary dryer (incumbent)",
+        "how": "Gas/oil burner heats air blown through a rotating drum; co- or counter-current contact evaporates moisture from bulk solids.",
+        "performance": "~3,500-9,000 kJ/kg water (~1.0-2.5 kWh/kg); BEE field data 788-1,416 kcal/kg; units 20-100+ t/h; ~30-60% thermal efficiency vs 0.63 kWh/kg latent floor.",
+        "limits": "Fossil heat source with exhaust losses; EU ETS/MCPD burden; 'electrifying' it means bolting on resistive/H2 burners with unchanged air losses."
+      },
+      {
+        "name": "Fluid-bed dryer (incumbent)",
+        "how": "Hot gas fluidizes fine particles through a perforated plate/distributor for high heat/mass transfer.",
+        "performance": "~4,000-6,000 kJ/kg water (~1.1-1.7 kWh/kg); single units to ~64-128 t/h on ore concentrates (e.g. Asarco copper).",
+        "limits": "Needs fluidizable particle size; high fan power; still gas-fired air heaters; fines entrainment/dust load."
+      },
+      {
+        "name": "Flash/pneumatic dryer (incumbent)",
+        "how": "Wet fines dispersed in a hot gas stream, drying in seconds; often integrated in the grinding mill circuit.",
+        "performance": "Very high evaporation flux (~750 kg/m2h); e.g. Mondo Minerals talc flash drying at ~450C air, ~20 GWh/yr site demand.",
+        "limits": "Surface moisture on fine powders only; high exhaust-volume losses; fossil-fired today."
+      },
+      {
+        "name": "Spray dryer (incumbent, slurries)",
+        "how": "Kaolin/mineral slurry atomized into hot air to make dry powder directly.",
+        "performance": "4,500-11,500 kJ/kg water (~1.3-3.2 kWh/kg) — the most energy-hungry dryer type; standard for slurry feeds.",
+        "limits": "Only viable for pumpable slurries; huge air heating duty makes electrification hard except via SHS/heat-pump routes."
+      },
+      {
+        "name": "Superheated-steam drying + MVR/heat pump (emerging electric rival)",
+        "how": "Closed steam loop dries material; mechanical vapor recompression recovers latent heat electrically (Fraunhofer LowCarbDry).",
+        "performance": "Targets 2-4x lower energy than hot-air drying; heat-pump drying ~0.14-0.31 kWh/kg water; ~4000 h demo operation reported in H2020 DryFiciency.",
+        "limits": "TRL ~5-6, pilot scale; compressor capex; steam chemistry/corrosion; unproven on abrasive bulk minerals."
+      },
+      {
+        "name": "Microwave/RF dielectric drying (ProSeed)",
+        "how": "915/2450 MHz fields volumetrically and selectively heat water inside the solid; energy deposited in the product, not in air.",
+        "performance": "Measured on iron pellets: ~120 vs ~170 kWh/t product (-30%) and 6-13x faster than convective; drying efficiency up to 56-78% vs ~30% convective; tailings >50% energy cut. Modules 6-300 kW (SAIREM, Pueschner, Ferrite/IMS).",
+        "limits": "Low-dielectric-loss matrices dry poorly (silica sand DE ~40%); multi-MW scale-up unproven commercially; electricity costs ~3-5x gas per kWh — economics hinge on efficiency gain + carbon price."
+      }
+    ],
+    "why_better_text": "Microwave drying deposits energy directly in the water inside the solid instead of heating tonnes of air and losing it in the exhaust — measured 30-50% lower specific energy on iron pellets and tailings at pilot scale. Being fully electric, it exits EU ETS and combustion-permitting scope, can run on renewable PPAs for scope-1-zero product claims (Mondo Minerals and Nordic Mining already proved this buyer logic with conventional electric heating), and offers instant controllability for demand response. Incumbents are ~30-60% thermally efficient against a 0.63 kWh/kg latent floor, leaving real headroom; the open question is scale-up economics versus cheap gas.",
+    "key_assumptions": [
+      "Drying = ~10-25% of industrial energy consumption, and mineral dryers today are overwhelmingly gas/oil-fired (measured, literature/industry).",
+      "Incumbent rotary/fluid-bed dryers use ~1.0-2.5 kWh_th per kg water vs 0.63 kWh/kg latent minimum, i.e. >=30% efficiency headroom for any better technology (measured).",
+      "Microwave drying saves ~30-50% energy vs convective on iron pellets/tailings (measured, pilot); kaolin/CaCO3 dielectric response likely between silica sand (DE ~40%, poor) and iron ore/basalt (DE ~65-78%, good) — must be measured per product (assumed).",
+      "A 50 t/h line drying 10%->0.5% moisture evaporates ~5 t/h water ~3-4 MW_th; commercial MW modules today top out ~300 kW, so ~10x array scale-up is needed — an engineering, not physics, gap (measured + assumed).",
+      "Economics work where carbon-priced gas plus ETS (~EUR60-90/tCO2) meets renewable electricity <~EUR80-100/MWh; strongest in EU/Nordics, weakest on cheap coal gas in Asia (assumed)."
+    ]
+  },
+  "sources": [
+    {"claim": "Industrial dryer market ~$8.2B (2025), APAC 41.9%, rotary largest type at 28.4%", "url": "https://www.grandviewresearch.com/industry-analysis/industrial-dryer-market-report"},
+    {"claim": "Industrial dryer market ~$4.8B (2025); replacement with energy-efficient designs is a demand driver", "url": "https://www.factmr.com/report/industrial-dryer-market"},
+    {"claim": "Rotary dryers ~$1.28B (2022); minerals/ores = 24.1% of applications; NA 26%, EU 19%, China 14%; key OEMs ThyssenKrupp, GEA, Andritz, FLSmidth, Metso", "url": "https://www.factmr.com/report/3583/rotary-dryers-market"},
+    {"claim": "Top-5 rotary dryer makers ~35-40% of revenue; fragmented below; Chinese suppliers compete on price", "url": "https://dataintelo.com/report/global-rotary-dryers-market"},
+    {"claim": "Europe: 250 industrial-mineral companies, 685 mines/quarries, 750 processing plants, 180 Mt/yr, EUR14B", "url": "https://ima-europe.eu/about-industrial-minerals/what-are-industrial-minerals/"},
+    {"claim": "Global kaolin ~46-49 Mt/yr production; market ~$5.75B; players Imerys, KaMin, Sibelco, BASF, Thiele", "url": "https://www.mordorintelligence.com/industry-reports/kaolin-market"},
+    {"claim": "GCC market ~$12.1B (2023); top-5 producers only ~12% share — fragmented; APAC 42%, NA 30%, EU 23%", "url": "https://www.qyresearch.com/reports/2372520/ground-calcium-carbonate--gcc"},
+    {"claim": "Omya: ~160 production plants in 50+ countries", "url": "https://www.omya.com/content/dam/omya-asset-share/sustainability/report/OMYA_Sustainability-Report_Screen_double-pages_260430_final.pdf.coredownload.pdf"},
+    {"claim": "Mondo Minerals electrified talc flash drying: 5 MW electric heater, ~20 GWh/yr, drying emissions to zero", "url": "https://nevel.com/reference/mondo-minerals/"},
+    {"claim": "Nordic Mining chose electric over gas dryers at Engbo rutile/garnet plant, cutting CO2 >80%", "url": "https://news.cision.com/nordic-mining-asa/r/use-of-electrical-dryers-significantly-reduces-co-2--footprint-at-engebo,c3283013"},
+    {"claim": "Fraunhofer LowCarbDry: electrified superheated-steam drying + MVR cuts energy 2-4x; drying is energy-intensive and mostly gas-fired today", "url": "https://www.igb.fraunhofer.de/en/press-media/press-releases/2026/energy-efficient-electric-drying-with-superheated-steam.html"},
+    {"claim": "CaCO3 drying site (S. France) uses ~86 GWh/yr natural gas for grinding+drying — decarbonization case study", "url": "https://airdrive.eventsair.com/eventsairwesteuprod/production-pcoconvin-public/7c586b69389e4e7c8d896ac678bc8558"},
+    {"claim": "Microwave vs convective drying of iron pellets/tailings: ~120 vs ~170 kWh/t (-30%), 6-13x faster, tailings >50% energy cut", "url": "https://www.energy-proceedings.org/wp-content/uploads/icae2025/1768243132.pdf"},
+    {"claim": "Microwave drying efficiency 40-78% across silica sand/basalt/kimberlite/iron ore vs ~30% convective — matrix dielectric loss is decisive", "url": "https://www.tandfonline.com/doi/full/10.1080/07373937.2026.2722240"},
+    {"claim": "Rotary dryer field data: 788-1,416 kcal supplied per kg water evaporated (~0.9-1.65 kWh/kg)", "url": "http://nredcap.in/PDFs/BEE_manuals/BEST_PRACTICE_MANUAL_DRYERS.pdf"},
+    {"claim": "Drying = 12-25% of industrial energy in developed countries", "url": "https://doi.org/10.4995/ids2018.2018.7851"},
+    {"claim": "EU ETS Annex I explicitly covers combustion units incl. dryers", "url": "https://climate.ec.europa.eu/document/download/edc93136-82a0-482c-bf47-39ecaf13b318_en?filename=policy_ets_gd0_annex_i_euets_directive_en.pdf"},
+    {"claim": "EU ETS free allocation phased out for CBAM sectors 2026-2034; benchmarks tightened", "url": "https://climate.ec.europa.eu/areas-action/carbon-markets/eu-emissions-trading-system-eu-ets/free-allocation/allocation-industrial-installations_en"},
+    {"claim": "SAIREM InnoDryer industrial microwave dryers, 6-300 kW continuous tunnels, minerals incl. iron ore", "url": "https://www.sairem.com/microwave-radiofrequency-equipment/industrial-machines/innodryer-material-dryer/"},
+    {"claim": "Pueschner Conti Dryer references: drying of iron ore, phosphate sand", "url": "https://pueschner.com/en/applications"}
+  ]
+}

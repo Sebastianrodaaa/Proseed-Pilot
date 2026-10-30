@@ -1,0 +1,128 @@
+{
+  "id": "h8",
+  "slug": "h8-mining-extraction-yields",
+  "title": "H8 - Higher ore extraction yields",
+  "market_scan": {
+    "market_size_text": "The value pool is mineral recovery inside the ~$23B/yr global mineral processing equipment market, but the real prize is recovered metal: a 1% recovery uplift on a large copper concentrator is worth roughly $5-15M/yr in extra revenue — far more than the equipment cost. Liberation/recovery improvements target flotation plants and leach operations within the same comminution-adjacent spend (~$10-15B/yr on crushing/grinding equipment plus separation). Demand is amplified by declining ore grades industry-wide, which forces finer grinding and makes liberation the bottleneck of recovery.",
+    "regions": {
+      "Europe": "~$2-3B/yr (~10%; Scandinavia + new CRMA-driven projects)",
+      "Asia": "~$9-10B/yr (~40-45%; China, Australia, India concentrator fleets)",
+      "America": "~$5-6B/yr (~25%; Chile/Peru copper + North American gold/copper)",
+      "Africa": "~$3-4B/yr incl. Middle East (~15%; copper/cobalt/gold growth, ~10% CAGR)"
+    },
+    "target_customers_text": "Same customer base as ore weakening — hard-rock concentrators and leach operations, ~3,000-5,000 sites of the ~15,000 facilities in ICMM's dataset — but the value case differs: recovery uplift pays best on high-value ores (gold, copper, PGM, refractory and low-grade deposits where every recovery point matters). Large concentrators monetise +1% recovery immediately; refractory-gold and heap-leach operators are a particularly receptive niche; small mines need simple bolt-on units. Sales motion is via metallurgical testwork → plant trial, typically 1-3 year adoption cycles.",
+    "customers": {
+      "Large": ["~200-400 concentrators (>10 Mt/y; majors, high revenue per recovery point)", "~70-80% of world processed tonnage"],
+      "Medium": ["~1,000-1,500 concentrators incl. gold/refractory niche (1-10 Mt/y)", "~15-25% of tonnage"],
+      "Small": ["~3,000+ sites (<1 Mt/y; heap-leach and gravity gold)", "<10% of tonnage"]
+    },
+    "players_text": "Recovery performance is today delivered by the same concentrated OEM tier (Metso, FLSmidth, Weir — #1 positions in flotation/classification) plus reagent/leaching specialists; incumbents optimise recovery inside conventional flowsheets rather than changing ore breakage physics. No commercial liberation-enhancing pre-treatment supplier exists: the emerging field (Nottingham/e2v MicroHammer microwave pilots; SELFRAG high-voltage pulse machines with JKMRC/Newcrest testwork showing selective grain-boundary breakage) is pre-commercial, leaving the liberation pre-treatment space open.",
+    "players": [
+      ["Large (Metso, FLSmidth, Weir)", "Flotation cells, classifiers/cyclones, regrind mills, hydrometallurgy — recovery via conventional flowsheet optimisation; strong aftermarket lock-in", "top 3 ~35-50% of relevant equipment; Metso #1 flotation/filtration"],
+      ["Medium (Eriez, TAKRAF/Delkor, Tenova, Multotec, Outotec-alumni specialists)", "Separation, leaching, thickening, specialist recovery equipment", "~20-30%"],
+      ["Small/emerging (SELFRAG HVP, Teledyne e2v MicroHammer, Lightning Machines, TOMRA/Steinert sorting)", "Liberation-enhancing pre-treatment: pulse fragmentation, microwave pilots, sensor-based pre-concentration", "<5%, fragmented, pre-commercial"]
+    ],
+    "regulation": [
+      ["EU Critical Raw Materials Act (2024)", "EU", "Targets 10% domestic extraction / 40% processing by 2030 and defines strategic recycling/recovery benchmarks — recovery-maximising technology aligns with EU resource-efficiency objectives and can ease project permitting narratives."],
+      ["EU Industrial Emissions Directive / MIN BREF", "EU", "BAT conclusions cover beneficiation/recovery efficiency and specific consumption indicators; better liberation at coarser grind reduces energy AND reagent/water intensity, supporting compliance."],
+      ["EU ETS + Energy Efficiency Directive Art. 11 audits", "EU", "Coarser-grind-for-equal-liberation cuts grinding energy; audited energy savings plus avoided metal losses both improve the economics regulators increasingly scrutinise."],
+      ["Tailings regulations (EU Extractive Waste Directive; GISTM global standard)", "EU/global", "Higher recovery = less metal and sulphide to tailings; post-Brumadinho GISTM compliance pressure favours technologies reducing tailings volumes and sulphide content."],
+      ["Australia Safeguard Mechanism / ICMM net-zero commitments", "Australia/global", "Declining grades raise energy per tonne of metal; recovery uplift lowers CO2 per unit metal — supports decarbonisation plans of majors committed to net zero."],
+      ["EMF/RF safety: CISPR 11/EN 55011 ISM + EU Directive 2013/35/EU", "EU/international", "Microwave units require shielding to ISM leakage limits (915 MHz/2.45 GHz) and worker EMF limits — engineering requirement, not a licensing barrier."]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Fine grinding to liberation size (incumbent)",
+        "how": "Ball/SAG mills grind ore until valuable minerals are liberated; recovery is then achieved by flotation, gravity or leaching.",
+        "performance": "Grinding ~40% of mine energy (US DOE); typical BWi 10-20 kWh/t; liberation typically requires P80 of 75-300 um, finer for low-grade/complex ores.",
+        "limits": "Random bulk breakage liberates poorly at coarse sizes; overgrinding creates slimes that depress flotation/gravity recovery — the trade-off the hypothesis relaxes."
+      },
+      {
+        "name": "Flotation + regrind circuits (incumbent recovery method)",
+        "how": "Rougher/scavenger flotation with regrind of middlings to recover locked particles.",
+        "performance": "Typical sulphide Cu recovery ~85-90%, gold ~85-95%; regrind adds several kWh/t.",
+        "limits": "Cannot recover values locked at grain boundaries below grind size; recovery gains cost disproportionate energy and capital — microwave cracks along grain boundaries instead."
+      },
+      {
+        "name": "Roasting / pressure oxidation (refractory ores)",
+        "how": "Thermal or autoclave oxidation of pyrite/arsenopyrite or carbonaceous matter to expose encapsulated gold before leaching.",
+        "performance": "Enables >90-98% recovery on double-refractory ores but is highly energy- and capex-intensive (autoclaves cost $100M+).",
+        "limits": "Only economic at large scale; high emissions. Microwave roasting achieved >98% Au recovery in lab at lower specific energy than conventional roasting — a substitute/add-on niche."
+      },
+      {
+        "name": "HPGR for heap-leach liberation",
+        "how": "HPGR micro-cracking improves permeability and exposes mineral surfaces before heap leaching.",
+        "performance": "Documented leach-kinetics and recovery improvements on gold/copper heap leach; ~1.5-4 kWh/t for the HPGR stage.",
+        "limits": "Mechanical cracks are less selective than grain-boundary fracture; benefit limited to leachable ores — microwave targets the same micro-crack mechanism more selectively."
+      },
+      {
+        "name": "High-voltage pulse fragmentation (SELFRAG)",
+        "how": "Sub-microsecond discharges fragment ore preferentially along grain boundaries while immersed in water.",
+        "performance": "~1-3 kWh/t for pre-weakening; lab/plant testwork shows coarser liberation and cleaner mineral surfaces than mechanical comminution.",
+        "limits": "Low throughput, wet processing, niche adoption; microwave achieves comparable grain-boundary selectivity dry and continuously at demonstrated 10-150 t/h scale."
+      },
+      {
+        "name": "Microwave pre-treatment (state of the art — the hypothesis technology)",
+        "how": "Selective microwave heating of high-dielectric-loss phases generates intergranular cracks at mineral grain boundaries, liberating values at coarser sizes before mechanical grinding.",
+        "performance": "Porphyry Cu ore at ~2 kWh/t: equivalent liberation at 40-70 um coarser grind; +~1% Cu flotation recovery or +30-60 um coarser grind at equal recovery. Free-milling gold ore: BWi -18.5%, gravity gold recovery 28%→40%. Refractory concentrates: leach recovery 74%→>90-98% in lab studies.",
+        "limits": "Gains depend on dielectric/mineralogical contrast between valuable and gangue phases; recovery uplift of ~1% on porphyry ores is near the detection limit of flotation testwork; no commercial installation yet."
+      }
+    ],
+    "why_better_text": "Incumbents buy liberation with energy — grinding finer until values are exposed — which simultaneously destroys recovery via slimes and locked middlings. Microwave pre-treatment fractures ore preferentially AT grain boundaries, so values are liberated ~40-70 um coarser: the same recovery at lower energy, less overgrinding, and better downstream flotation/gravity/leach performance. The economics are powerful because recovery gains monetise directly as metal revenue (a +1% recovery point is worth several $M/yr on a large concentrator) rather than merely saving cost, and lab evidence shows order-of-magnitude larger effects on free-milling gold (28%→40% gravity recovery) and refractory ores (74%→>90% leach recovery) — niches where the mechanism is strongest.",
+    "key_assumptions": [
+      "Equivalent mineral liberation achievable at ~40-70 um coarser grind after ~0.3-2 kWh/t microwave treatment (measured, Nottingham pilot + MLA analysis)",
+      "~+1% Cu flotation recovery demonstrated at pilot-relevant doses; statistically hard to confirm but worth ~$5-15M/yr on a large concentrator (measured, Batchelor et al.)",
+      "Free-milling gold gravity recovery improved 28%→40% after microwave pre-treatment; BWi -18.5% (measured, lab scale)",
+      "Refractory gold leach recovery 74%→>90-98% via microwave pre-treatment/roasting at lower specific energy than conventional roasting (measured, lab scale)",
+      "Recovery benefit requires dielectric/textural contrast between valuable and gangue minerals; ores with unfavourable textures show modest liberation gains (measured — key ore-selection risk)"
+    ]
+  },
+  "sources": [
+    {
+      "claim": "Porphyry Cu: equivalent liberation at 50-60 um coarser grind; ~+1% Cu recovery or +30 um coarser at equal recovery (15 kW, ~2 kWh/t)",
+      "url": "https://nottingham-repository.worktribe.com/index.php/output/975378/increasing-the-grind-size-for-effective-liberation-and-flotation-of-a-porphyry-copper-ore-by-microwave-treatment"
+    },
+    {
+      "claim": "Pilot scale: equivalent liberation 40-70 um coarser at 0.3-3 kWh/t; 150 t/h system, ~300 t treated under power",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0892687517301322"
+    },
+    {
+      "claim": "Free-milling gold ore: crushing strength -31.2%, BWi -18.5%, gravity gold recovery improved ~28%→40%",
+      "url": "https://doi.org/10.1179/037195505x28447"
+    },
+    {
+      "claim": "Double refractory gold: microwave roasting → ~94% organic carbon removal, >98% Au cyanide recovery, lower specific energy than conventional roasting",
+      "url": "https://ui.adsabs.harvard.edu/abs/2007MiEng..20.1109N/abstract"
+    },
+    {
+      "claim": "Refractory gold concentrate: microwave pre-treatment lifted leach recovery from ~74% to >90%",
+      "url": "http://en.cnki.com.cn/Article_en/CJFDTOTAL-KYZZ200101016.htm"
+    },
+    {
+      "claim": "Mechanism: shear stresses highest at grain boundaries of heated particles in microwave-transparent matrix → intergranular fracture and enhanced liberation",
+      "url": "https://eprints.nottingham.ac.uk/12161/1/417230.pdf"
+    },
+    {
+      "claim": "MicroHammer: heats/expands copper grains so they split from host rock; >20% extraction energy reduction, production +~1/3",
+      "url": "https://www.nottingham.ac.uk/engineering/research/impact/research-impact-success-stories/microhammer.aspx"
+    },
+    {
+      "claim": "Mineral processing equipment market ~$22.9B (2025); Metso #1 flotation/filtration market positions",
+      "url": "https://www.futuremarketinsights.com/reports/mineral-processing-equipment-market"
+    },
+    {
+      "claim": "ICMM Global Mining Dataset: ~15,000 mining/processing facilities across 151 countries",
+      "url": "https://www.icmm.com/global-datasets/mining-metals-facilities"
+    },
+    {
+      "claim": "APAC ~42% ($7.9B), North America ~25% of mineral processing equipment market; regional splits",
+      "url": "https://dataintelo.com/report/global-mineral-processing-equipment-market"
+    },
+    {
+      "claim": "HVP selective liberation: cracks on mineralised particles, coarser liberation, JKMRC/Newcrest/SELFRAG pilot testwork",
+      "url": "https://smi.uq.edu.au/files/49283/16%20High%20Voltage%20Pulse.pdf"
+    }
+  ]
+}

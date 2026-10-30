@@ -1,0 +1,100 @@
+{
+  "id": "h10",
+  "slug": "h10-minerals-dryer-capacity",
+  "title": "H10 - Higher capacity mineral drying",
+  "market_scan": {
+    "market_size_text": "Same underlying pool as H9: mineral drying equipment+services is order-of-magnitude ~$1-3B/yr globally inside a ~$5-10B industrial dryer market, with minerals/ores ~24% of rotary dryer demand. The capacity-booster angle targets the installed base rather than new lines: dryers run 20-40 years, replacement/upgrade is a named demand driver in market reports, and OEM aftermarket/service is ~30-40% of dryer-OEM revenue (~). A new large rotary line costs ~$8-15M installed with 12-18-month lead times, so a retrofit that adds ~20-30% throughput for low single-digit $M addresses a real capex-avoidance budget — adjacent precedents exist (microwave boost ovens +25% throughput in food; IR booster sections debottlenecking paper machines; parallel fluid-bed additions at a 48->100 ktpa magnesium plant).",
+    "regions": {
+      "Europe": "~$0.3-0.7B (aging installed base + ETS pressure; retrofit-friendly, capex-constrained mid-size producers)",
+      "Asia": "~$1-2B (largest market but dominated by new-build/greenfield; retrofit slice smaller share)",
+      "America": "~$0.5-1.2B (large aging fleet; debottlenecking culture strong in NA minerals/mining)",
+      "Africa": "~$0.1-0.3B (mine expansions; often cheaper to overbuild new than retrofit)"
+    },
+    "target_customers_text": "Operators whose drying step limits line throughput — typically because feed moisture rose (wetter ore, seasonal stockpiles), demand grew, or the dryer aged. Same base as H9: ~750 IMA-member processing plants in Europe, majors like Omya (~160 plants) and Imerys (~100+ sites) centralizing engineering decisions, plus hundreds of ore concentrators running single-line dryers where +10-20% capacity has high marginal value against $8-15M for a parallel line. Reachable through dryer-OEM aftermarket channels, plant engineering managers, and industry consultants; buying trigger is a capacity project already being scoped, so timing windows are episodic but the value case (avoided capex + deferred permitting) is concrete.",
+    "customers": {
+      "Large": ["~30-50 producer groups worldwide, ~500-800 drying plants (~)", "~50-60% of dried mineral tonnage (~)"],
+      "Medium": ["~300-500 regional producers, ~1,000-2,000 plants (~)", "~30% of tonnage (~)"],
+      "Small": ["~1,000-3,000 single-site quarry/processors (~)", "~10-15% of tonnage (~)"]
+    },
+    "players_text": "Conventional debottlenecking is served by the incumbent dryer OEMs' aftermarket arms (Metso, FLSmidth, Andritz, ThyssenKrupp, GEA) selling upgrades, heat-recovery retrofits (~18-25% fuel savings reported in EU cement/mineral retrofits) and parallel units, plus mid-tier OEMs doing add-on dryers. Booster/inline technology is a niche: microwave boost ovens proven in food (Ferrite/IMS MIP-9, +25% throughput), IR booster sections proven in paper/board (Ircon Solaronics), but no established microwave-booster player for bulk minerals — whitespace similar to H9.",
+    "players": [
+      ["Large OEM aftermarket (Metso, FLSmidth, Andritz, ThyssenKrupp, GEA)", "dryer upgrades, indirect-heat & heat-recovery retrofits, parallel lines, service contracts", "~35-50% of new dryer revenue; aftermarket ~30-40% of OEM sales (~)"],
+      ["Medium (Allgaier, Comessa, Schenck, Carrier Vibrating, FEECO, Schwing Bioset, Hazemag, Louisville)", "add-on rotary/FBD dryers, refurbishment, regional debottlenecking projects", "~30-40% (~)"],
+      ["Small booster/dielectric niche (Ferrite/IMS, SAIREM, Pueschner, Cellencor; IR specialists e.g. Ircon Solaronics)", "microwave/IR booster and pre-dryer modules 6-300 kW; proven +25-30% throughput in food/paper, mineral refs scarce", "<5-10% today, emerging (~)"]
+    ],
+    "regulation": [
+      ["EU ETS (Directive 2003/87/EC)", "EU", "Debottlenecking by adding gas-fired capacity increases ETS exposure (~EUR60-90/tCO2); an electric booster adds throughput with zero on-site combustion."],
+      ["MCPD 2015/2193 / IED permit review", "EU", "Uprating burners or adding combustion capacity can trigger permit modification and tighter emission limits; an electric booster avoids reopening combustion permitting."],
+      ["US EPA NSPS/NESHAP air permitting", "US", "Increased firing rates on existing dryers can trigger New Source Review/BACT analysis; non-combustion boosters sidestep it."],
+      ["Energy Efficiency Directive (EU) 2023/1791", "EU", "Mandatory energy audits push operators to exploit low-capex efficiency/capacity measures — a booster that raises output per GJ is a natural audit action."],
+      ["National decarbonization funding (DE EEW, EU Innovation Fund, US IRA 48C/DOE)", "EU, DE, US", "Retrofit projects combining capacity gain with electrification qualify for process-heat decarbonization subsidies, improving booster economics."]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Existing rotary/fluid-bed/flash dryer (the asset to boost)",
+        "how": "Fossil-fired drum, fluid bed or flash tube whose throughput is set by evaporation duty (kJ per kg water) and residence time.",
+        "performance": "~1.0-2.5 kWh_th/kg water; single lines 20-100+ t/h; dryers routinely the plant bottleneck when inlet moisture or demand rises.",
+        "limits": "Capacity is thermally capped: more feed needs more burner + air handling + permit headroom; drum length/diameter fixes residence time."
+      },
+      {
+        "name": "Upstream mechanical dewatering (filter press, centrifuge, screen)",
+        "how": "Remove free water mechanically before thermal drying — cheapest water removal (~1/10 the energy of thermal).",
+        "performance": "Cuts filter-cake moisture to ~8-15% for concentrates; classic first debottleneck step.",
+        "limits": "Cannot reach low residual moisture; not applicable to already-granular/free-draining ores and sands that enter the dryer at 5-12%."
+      },
+      {
+        "name": "Parallel/second dryer line (conventional debottleneck)",
+        "how": "Install an additional rotary or fluid-bed dryer alongside the existing one.",
+        "performance": "Hatch magnesium project: tripled fluid-bed dryer count to go 48->100 ktpa. New large rotary line ~$8-15M installed, 12-18-month lead.",
+        "limits": "Full capex, footprint, ducting/fans/baghouse duplicated, combustion permit and ETS exposure grow; outage and tie-in complexity."
+      },
+      {
+        "name": "Heat-recovery / indirect-heat retrofit",
+        "how": "Exhaust-gas heat exchangers, insulation, burner upgrades, conversion to indirect heating to free thermal margin.",
+        "performance": "EU cement/mineral retrofits report ~18-25% fuel reduction; recovers capacity margin indirectly.",
+        "limits": "Raises throughput only modestly (~5-15%); engineering downtime; still fossil-fired."
+      },
+      {
+        "name": "Inline booster drying sections (IR/hot-air) — proven in paper",
+        "how": "Compact high-intensity IR or air dryers inserted at bottleneck points of an existing line to add evaporation without rebuild.",
+        "performance": "Ircon Solaronics references: removes line bottlenecks, lifts machine speed/capacity without full rebuilds; standard practice in paper/board.",
+        "limits": "Surface heating suits webs/sheets, not deep mineral beds; mineral analog largely unproven."
+      },
+      {
+        "name": "Microwave pre-dryer / booster (ProSeed)",
+        "how": "915/2450 MHz tunnel upstream (or interstage) of the existing dryer strips the constant-rate moisture load volumetrically; the incumbent dryer only finishes to spec.",
+        "performance": "Food analog MIP-9 boost ovens: +25% throughput at 75-300 kW per tunnel; mineral pilots show MW drying 6-13x faster and -30-50% energy vs convective, so a few-hundred-kW to ~1 MW booster can offload ~20-40% of evaporation duty.",
+        "limits": "Abrasive, high-temperature mineral belt/applicator design unproven at scale; dielectric response varies by matrix (silica poor, iron ore good); adds ~kWh_el operating cost vs gas unless efficiency + carbon economics compensate."
+      }
+    ],
+    "why_better_text": "A microwave booster adds evaporation capacity in meters of tunnel, not tens of meters of drum: volumetric water-selective heating removes part of the load upstream so the existing dryer finishes faster — the same +25-30% throughput effect proven by MW boost ovens in food and IR boosters in paper. It installs in a short outage at a fraction of the $8-15M and 12-18 months of a parallel line, adds no burner so no permit or ETS expansion, and its instant controllability also fixes moisture-uniformity problems that often are the true throughput limiter. For capacity-constrained plants the value is avoided capex plus earlier tonnes, not energy savings per se.",
+    "key_assumptions": [
+      "Drying is frequently the bottleneck when feed moisture or demand rises; upstream boosting gives +20-30% line throughput — proven for MW in food (MIP-9, measured) and IR in paper (measured); transfer to mineral beds assumed.",
+      "Offloading ~2-4 percentage points of inlet moisture upstream removes ~20-40% of the existing dryer's evaporation duty (assumed; depends on inlet moisture profile).",
+      "New parallel rotary line: ~$8-15M installed, 12-18-month lead (measured, market/capex references); a MW booster line est. <$1-3M per ~1 MW installed (assumed).",
+      "Mineral duty (abrasion, 100-300C, dust) requires new applicator/belt engineering — the main technical risk, plus dielectric-loss variability by mineral (measured spread 40-78% drying efficiency).",
+      "Booster opex: ~0.7-1.0 kWh_el/kg water removed vs ~1.2-2.0 kWh_th/kg in the incumbent; at EU industrial power ~EUR60-100/MWh vs gas ~EUR30-50/MWh, opex is roughly neutral-to-better while throughput is the payback driver (assumed)."
+    ]
+  },
+  "sources": [
+    {"claim": "Large rotary dryer system ~$8-15M installed, 12-18-month lead; EU ETS ~EUR80-100/tCO2 makes efficient retrofits 3-5-yr payback; indirect-heat retrofits cut fuel 18-25%", "url": "https://datahorizzonresearch.com/rotary-dryer-market-34467"},
+    {"claim": "Carmeuse rotary dryer project capex breakdown: ~$1.5M dryer, ~$9.9M total installed with cyclone/baghouse/conveying", "url": "https://www.trine.edu/design-expo/documents/2024/Carmeuse%20Rotary%20Dryer.pdf"},
+    {"claim": "Rotary dryer price ranges: medium industrial $120k-500k, large systems $500k-1.5M+, turnkey lines to $2M+ (China-sourced)", "url": "https://www.sailongmachine.com/news/rotary-dryer-how-much-does-an-industrial-rotary-dryer-cost.html"},
+    {"claim": "Ferrite MIP-9 microwave boost oven: +25% throughput on existing lines, 75-300 kW at 915 MHz", "url": "https://ferriteinc.com/wp-content/uploads/2021/09/Boost-Heating-Industrial-Drying.pdf"},
+    {"claim": "IMS MIP-9 industrial microwave system: up to +25% throughput, 75-300 kW, 915 MHz tunnel for food/materials", "url": "https://industrialmicrowave.com/microwave-drying-heating-systems/industrial-microwave-system/"},
+    {"claim": "Ircon Solaronics IR booster sections debottleneck paper machines and lift capacity without rebuilds", "url": "https://www.ircon-solaronics.com/solutions/paper-and-board/boost-of-production-capacity/"},
+    {"claim": "Hatch magnesium plant debottleneck: tripled fluid-bed dryer count to lift capacity 48->100 ktpa", "url": "https://www.hatch.com/en/Projects/Metals-And-Minerals/Dehydration-Area-and-Core-Technology-Delivery-Projects"},
+    {"claim": "Asarco copper concentrate: two 12-ft fluid-bed dryers at 64 wet t/h each — single-line dryers are real plant bottlenecks", "url": "https://www.osti.gov/biblio/5514972"},
+    {"claim": "Microwave drying of iron pellets/tailings: 6-13x faster, ~30-50% less energy than convective — basis for compact booster", "url": "https://www.energy-proceedings.org/wp-content/uploads/icae2025/1768243132.pdf"},
+    {"claim": "Microwave drying efficiency varies 40-78% by mineral matrix (silica low, basalt/iron ore high)", "url": "https://www.tandfonline.com/doi/full/10.1080/07373937.2026.2722240"},
+    {"claim": "SAIREM InnoDryer: 6-300 kW continuous MW tunnels positioned as 'drying accelerator' inserted into existing lines", "url": "https://www.sairem.com/microwave-radiofrequency-equipment/industrial-machines/innodryer-material-dryer/"},
+    {"claim": "Pueschner Conti Dryer modular microwave chambers; references drying iron ore and phosphate sand", "url": "https://pueschner.com/en/products/?p=en%2Fproducts"},
+    {"claim": "Europe: 250 industrial-mineral companies, 750 processing plants — installed-base size for retrofits", "url": "https://ima-europe.eu/about-industrial-minerals/what-are-industrial-minerals/"},
+    {"claim": "Rotary dryer market ~$1.28B (2022); minerals/ores 24.1% of demand; regional shares NA 26%/EU 19%/China 14%", "url": "https://www.factmr.com/report/3583/rotary-dryers-market"},
+    {"claim": "Industrial dryer market growth driven by replacement of older dryers with energy-efficient designs", "url": "https://www.factmr.com/report/industrial-dryer-market"},
+    {"claim": "EU ETS scope covers dryers as combustion units — capacity additions via combustion raise carbon cost", "url": "https://climate.ec.europa.eu/document/download/edc93136-82a0-482c-bf47-39ecaf13b318_en?filename=policy_ets_gd0_annex_i_euets_directive_en.pdf"},
+    {"claim": "Rotary dryer field data: 788-1,416 kcal/kg water — defines the evaporation-duty ceiling a booster offloads", "url": "http://nredcap.in/PDFs/BEE_manuals/BEST_PRACTICE_MANUAL_DRYERS.pdf"}
+  ]
+}

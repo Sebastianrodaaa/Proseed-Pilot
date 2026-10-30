@@ -1,0 +1,19 @@
+{
+  "name": "proseed",
+  "version": "0.1.0",
+  "description": "ProSeed hypothesis-validation method for industrial innovation: a 16-step, two-part workflow that takes a deep-tech idea from problem hypotheses to a validated value proposition, then through selling, building, and learning",
+  "author": {
+    "name": "ProSeed"
+  },
+  "license": "Proprietary",
+  "keywords": [
+    "hypothesis-validation",
+    "industrial-innovation",
+    "deep-tech",
+    "customer-discovery",
+    "value-proposition",
+    "unit-economics",
+    "commercialization",
+    "workflow"
+  ]
+}

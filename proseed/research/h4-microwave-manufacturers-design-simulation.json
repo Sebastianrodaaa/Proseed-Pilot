@@ -1,0 +1,99 @@
+{
+  "id": "h4",
+  "slug": "h4-microwave-manufacturers-design-simulation",
+  "title": "H4 - Microwave manufacturer design simulation",
+  "market_scan": {
+    "market_size_text": "The buyer pool is the industrial microwave heating equipment industry itself: ~$1.4-1.6B/yr equipment sales (2025) carried by a few dozen established OEMs plus a long tail of regional/tunnel-machine builders. The comparable software market — electromagnetic simulation software overall — is ~$1.5-2.9B/yr growing 10-18%/yr, but the microwave-heating slice of that is tiny (order ~$30-80M/yr), because today it is served as a byproduct of general EM tools. A purpose-built applicator/cavity design tool addresses this niche plus the currently unmonetized 'in-house code + trial-and-error' segment.",
+    "regions": {
+      "Europe": "~$0.4-0.5B (densest OEM cluster: Germany/France/Italy/UK; European leaders ~35-40% of global microwave-dryer share)",
+      "Asia": "~$0.5-0.6B (largest regional equipment market ~35%; many mid/low-tier machine builders in China/Japan/India)",
+      "America": "~$0.4-0.5B (~25-30%; US specialists + component/generator vendors)",
+      "Africa": "~$0.05-0.15B (incl. Middle East; small OEM presence, mostly import market)"
+    },
+    "target_customers_text": "A concentrated, easy-to-map customer set: roughly 15-25 established industrial microwave OEMs (Muegge, Püschner, Sairem, Linn High Therm, Industrial Microwave Systems, Ferrite/Microwave Techniques, AMTek, Thermex, Cellencor, plus generator/component vendors like Richardson, CPI, e2v, Hitachi, Toshiba), ~30-80 mid-size specialists, and a long tail of ~100-300 smaller/regional tunnel-equipment builders concentrated in Asia. They are reachable through a handful of channels (AMPERE, IMPI conferences, trade fairs), and each has an engineering department that already understands the problem — the best-defined customer group of the three hypotheses, but also the smallest.",
+    "customers": {
+      "Large": ["~10-20 OEMs", "~55-70% of equipment revenue"],
+      "Medium": ["~30-80 specialist OEMs", "~25-30%"],
+      "Small": ["~100-300 small/regional builders", "~5-15%"]
+    },
+    "players_text": "The design-simulation market is dominated by general-purpose EM suites: Ansys HFSS, Dassault CST Studio Suite, Altair FEKO, COMSOL Multiphysics+RF together take ~70-80% of EM-simulation spend (top-5 CAE vendors hold ~2/3 of the ~$10B CAE market). These tools were built for telecom/electronics, so microwave-heating workflows (temperature-dependent dielectrics, moving loads, thermal runaway, calorimetric power balance) must be rebuilt by each OEM's engineers. Only one small vendor (QWED, Poland, QuickWave) sells heating-dedicated modules; the rest of the niche is in-house codes, consultancies and academia — the market is effectively one strong incumbent category plus one proven niche precedent.",
+    "players": [
+      ["Large (Ansys/Synopsys HFSS, Dassault SIMULIA CST, Altair FEKO/HyperWorks, COMSOL RF, Keysight)", "general 3D EM solvers with optional thermal coupling; pricing ~$10k (COMSOL) to ~$50k+ (HFSS) per seat", "~70-80% of EM-sim spend"],
+      ["Medium (QWED QuickWave, Remcom XFdtd, IMST Empire)", "specialist FDTD tools; only QuickWave offers a dedicated microwave-heating module", "~10-15%"],
+      ["Small (open-source openEMS/MEEP, in-house OEM codes, MW design consultancies, university groups)", "free/expert tools and bespoke simulation services filling gaps the suites leave", "~10-15%"]
+    ],
+    "regulation": [
+      ["IEC/EN 60519-6", "International/EU", "Safety requirements for industrial microwave heating installations (leakage, interlocks, emission limits 800 MHz-6 GHz ISM); design-stage simulation of leakage and hot spots directly supports conformity"],
+      ["CISPR 11 / EN 55011 (Group 2 ISM equipment)", "International/EU", "RF emission limits for ISM equipment; applicator/cavity design determines compliance, so simulation that predicts emissions shortens certification cycles"],
+      ["ITU Radio Regulations ISM bands", "Global, region-dependent", "Equipment must operate inside ISM allocations (915 MHz mainly Americas, 2.45/5.8 GHz worldwide, plus national variants like 896 MHz UK/922 MHz JP); multi-band-aware design tools cover export markets"],
+      ["Directive 2013/35/EU (worker EMF exposure)", "EU", "Minimum worker EMF-exposure requirements influence applicator shielding/feeder design — a simulation output OEMs must document"],
+      ["FCC Part 18", "USA", "US rules for ISM equipment emissions; required for machines exported to the largest single market"]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Full-wave 3D EM + thermal multiphysics suites (Ansys HFSS, CST Studio Suite, COMSOL RF+Heat Transfer, Altair FEKO)",
+        "how": "FEM (HFSS, COMSOL) or FIT/FDTD (CST) solvers compute cavity fields; coupled thermal/CFD step converts dissipated power into temperature fields; engineers script parametric sweeps and optimization manually.",
+        "performance": "Experimentally validated against real applicators (e.g., 915 MHz single-mode applicator benchmark COMSOL vs CST); single runs minutes-hours; full design-space sweeps days-weeks on workstations",
+        "limits": "Built for antennas/PCB/radar, not heating: temperature-dependent dielectrics, moving loads and runaway need manual coupling; steep learning curve; ~$10-70k per seat; results highly sensitive to dielectric input data the OEM must measure itself"
+      },
+      {
+        "name": "Microwave-heating-dedicated FDTD (QWED QuickWave + Basic Heating Module, QW-OptimiserPlus)",
+        "how": "FDTD EM-thermal co-simulation with temperature-/enthalpy-dependent media, moving/rotating load support, source-frequency tuning and built-in optimizer — the closest existing product to the H4 idea.",
+        "performance": "Purpose-built features cut model-building effort vs generalists; validated in high-temperature processing studies (e.g., zirconia sintering, runaway prediction); niche vendor scale",
+        "limits": "Small company with limited marketing reach, ecosystem and multiphysics breadth; still requires expert users and measured dielectric data; little traction outside the specialist MW-heating community"
+      },
+      {
+        "name": "Analytical/mode-matching and reduced-order cavity models + in-house codes",
+        "how": "Modal analysis of canonical applicator geometries, equivalent-circuit load models, and OEM-specific empirical design rules accumulated over decades.",
+        "performance": "Seconds per evaluation; adequate for early sizing of single-mode applicators and waveguide feeds; embedded in OEM know-how",
+        "limits": "Fails for multimode cavities, irregular loads and coupled thermal behavior — exactly where expensive mistakes happen; knowledge is tribal, undocumented, and non-transferable"
+      },
+      {
+        "name": "Build-and-test prototyping (calorimetry, thermography, product trials)",
+        "how": "The incumbent workflow: fabricate applicator variants, measure field/temperature indirectly, iterate in the pilot plant.",
+        "performance": "Highest fidelity for final validation; typical industrial applicator prototypes cost order ~$50-500k and add weeks-months per iteration",
+        "limits": "Slow, expensive, and blind to internal EM fields (only surface temperature/leakage measurable); limits the design space an OEM can explore; scales poorly with custom-machine business"
+      },
+      {
+        "name": "AI/surrogate-assisted EM optimization",
+        "how": "Train surrogate models on solver results to explore large design spaces; emerging feature in vendor roadmaps (Ansys optiSLang-type, CST+SIMULIA AI).",
+        "performance": "Market analyses report AI surrogates cutting multi-day solver campaigns to hours; adopted in antenna/radar design first",
+        "limits": "Needs hundreds-thousands of training simulations and curated dielectric data — expensive to bootstrap; no microwave-heating-specific surrogate libraries exist today"
+      },
+      {
+        "name": "Dielectric property measurement (cavity perturbation, coaxial probe, resonant methods)",
+        "how": "Laboratory characterization of complex permittivity vs temperature/frequency/moisture — the mandatory input for every heating simulation.",
+        "performance": "Well-established methods; published comparisons show strong sensitivity of simulated temperature to dielectric accuracy; ProSeed could own a proprietary materials database",
+        "limits": "Data is scattered, mostly unpublished, and must often be re-measured per customer material — a structural bottleneck no solver vendor solves"
+      }
+    ],
+    "why_better_text": "Generalist suites sell OEMs an expensive, expert-only toolkit and leave each manufacturer to re-implement microwave-heating physics — dielectric databases, moving-load handling, calorimetric power balance, runaway prediction — on top of $50k seats. A domain-focused design tool can win by shipping applicator/cavity templates, a proprietary temperature-dependent dielectric library, and built-in ISM/emission checks, collapsing model-building time from engineer-weeks to days and making optimization loops practical for mid-size OEMs that cannot justify HFSS specialists. QWED's QuickWave proves a niche product can exist; ProSeed's advantage over QWED is owning real equipment design + process data, and offering it as tool-plus-service where incumbents sell seats alone.",
+    "key_assumptions": [
+      "Only ~15-25 established OEMs plus ~100-300 smaller builders exist globally, so reachable customers number in the low hundreds — a niche that caps license revenue but suits focused B2B sales (assumed; consistent with market reports naming ~10-20 key players)",
+      "Generalist EM seats cost ~$10k (COMSOL base+RF ~EUR 7.7k) to ~$50-70k (HFSS) before the expert labor to use them (measured, public price lists/forums)",
+      "OEM design today still relies heavily on iterative prototyping at ~$50-500k per applicator iteration (assumed, industry-typical for custom RF hardware)",
+      "Accurate results require measured temperature-dependent dielectric data per product — whoever owns that data owns simulation accuracy (measured, applicator validation literature)",
+      "A specialist tool must be ~5-10x faster to a manufacturable design than the generalist workflow to overcome switching inertia (assumed)"
+    ]
+  },
+  "sources": [
+    { "claim": "Industrial microwave heating equipment market ~$1.4B (2025), CAGR ~6.3%, APAC ~35% share", "url": "https://www.grandviewresearch.com/industry-analysis/industrial-microwave-heating-equipment-market" },
+    { "claim": "Named equipment OEMs: Muegge, Püschner, Sairem, IMS, Richardson, CPI, Hitachi, Toshiba Hokuto, e2v, Kerone, Thermex, Lambda — fragmented vendor landscape", "url": "https://www.industryarc.com/research/industrial-microwave-heating-equipment-market-research-505844" },
+    { "claim": "European manufacturers (Püschner, Muegge, Linn High Therm, Sairem) ~35-40% of global microwave dryer share; market moderately consolidated", "url": "https://dataintelo.com/report/global-microwave-dryers-market" },
+    { "claim": "EM simulation software market ~$2.87B (2025) to $6.61B (2030), ~18% CAGR; NA largest, APAC fastest", "url": "https://www.thebusinessresearchcompany.com/report/electromagnetic-simulation-software-global-market-report" },
+    { "claim": "EM simulation software market ~$1.51-1.66B (2025-26), ~10% CAGR; AI surrogate models reduce multi-day solver runs to hours; Ansys-Synopsys consolidation", "url": "https://www.mordorintelligence.com/pt/industry-reports/electromagnetic-simulation-software-market" },
+    { "claim": "CAE market ~$6.1B (2020); top-5 vendors (Ansys, Siemens, Dassault, Altair, Hexagon), top-3 ~47% of revenue", "url": "https://www.digitalengineering247.com/article/democratizing-simulation-a-progress-report" },
+    { "claim": "Benchmark: 915 MHz single-mode applicator modelled in COMSOL vs CST; simulated temperatures highly sensitive to dielectric property variation", "url": "https://doi.org/10.1080/08327823.2025.2576648" },
+    { "claim": "QuickWave 3D + Basic Heating Module: the only commercial FDTD suite with dedicated MW-heating features (moving loads, source tuning, enthalpy-dependent media)", "url": "https://qwed.eu/quickwave/basic-heating-module/" },
+    { "claim": "Survey of EM software usable for microwave heating: solvers originally developed for communications/high-speed electronics; ~17 full-wave 3D simulators from 16 vendors", "url": "https://users.wpi.edu/~vadim/8th-AMPERE-Paper_Full-version.pdf" },
+    { "claim": "COMSOL RF Module microwave heating workflow: frequency-domain EM + transient heat transfer", "url": "https://www.comsol.com/blogs/quick-intro-modeling-rf-microwave-heating" },
+    { "claim": "HFSS-class 3D EM seats ~$50k; lease options in five figures/yr", "url": "https://www.eevblog.com/forum/rf-microwave/approximate-pricing-on-3-d-em-software/" },
+    { "claim": "Enterprise EM licensing ~$20k-100k+/seat/yr; pricing structure excludes small users", "url": "https://www.epsilonforge.com/post/why-em-software-so-expensive/" },
+    { "claim": "COMSOL price list: base ~EUR 5,343 + RF Module ~EUR 2,368 perpetual (~EUR 7.7k/seat)", "url": "https://www.luis.uni-hannover.de/fileadmin/software-lizenzen/Ueberlassung/comsol_preisliste_luis.pdf" },
+    { "claim": "IEC/EN 60519-6: safety standard for industrial HF/microwave heating installations incl. emission limits at ISM frequencies", "url": "https://www.evs.ee/en/evs-en-iec-60519-6-2024" },
+    { "claim": "AMPERE: European association for microwave/RF heating linking industry and academia — main channel to reach OEM engineers", "url": "https://www.ampereeurope.org/introduction/" },
+    { "claim": "Multiphysics review: nonlinear microwave-material interaction, hot spots and thermal runaway as key phenomena simulation must capture", "url": "https://doi.org/10.5772/13387" }
+  ]
+}

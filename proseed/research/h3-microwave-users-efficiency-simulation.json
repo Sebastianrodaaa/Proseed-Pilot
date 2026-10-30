@@ -1,0 +1,93 @@
+{
+  "id": "h3",
+  "slug": "h3-microwave-users-efficiency-simulation",
+  "title": "H3 - Microwave user efficiency simulation",
+  "market_scan": {
+    "market_size_text": "The underlying installed-equipment market is small but real: global industrial microwave heating equipment sales are ~$1.4-1.6B/yr (2025, ~4-6% CAGR), which implies an installed base of only tens of thousands of machines. The directly addressable software/optimization layer for that installed base is a niche — likely ~$50-200M/yr at best today (~1-10% of equipment spend on simulation/optimization services). The adjacent, much larger context is the process digital-twin market (~$2.6B in 2025, ~31% CAGR), which shows strong operator demand for efficiency software but is dominated by generic platforms without microwave physics.",
+    "regions": {
+      "Europe": "~$0.35-0.45B (equipment market proxy; ~20-30% share, strong density of microwave OEMs and food/pharma users)",
+      "Asia": "~$0.5-0.55B (~35% share, largest region per Grand View Research)",
+      "America": "~$0.4-0.45B (~25-30% share)",
+      "Africa": "~$0.1-0.15B (incl. Middle East, ~5-10% share)"
+    },
+    "target_customers_text": "Customers are the industrial plants operating installed microwave systems (food tempering/drying/sterilizing, pharma, chemicals, wood, ceramics, rubber vulcanization). SAIREM alone claims ~5,000 machines installed in 70+ countries, so the worldwide installed base is plausibly ~10^4-10^5 machines spread over ~10,000-40,000 plants. Most operators are SMEs with no microwave engineering staff; they are hard to reach directly and are best approached through equipment OEMs, industry associations (AMPERE, IMPI), and retrofit/maintenance channels.",
+    "customers": {
+      "Large": ["~1,000-3,000 plants", "~45-55% of installed microwave capacity (multi-line multinational food/pharma/chemical operators)"],
+      "Medium": ["~5,000-15,000 plants", "~30-40%"],
+      "Small": ["~10,000-25,000 plants", "~10-20%"]
+    },
+    "players_text": "No vendor today sells 'efficiency simulation for existing industrial microwave machines' as a product. The de-facto incumbents are (a) the equipment OEMs' own after-sales/service engineering, (b) generalist EM/multiphysics tools (Ansys, COMSOL, CST) usable only by specialists, and (c) generic digital-twin/APC platforms (AVEVA, AspenTech, Siemens) that lack EM-thermal microwave physics. Niche microwave-heating simulation exists only in QWED's QuickWave heating module and in consultancies/academic groups (e.g., AMPERE network). Competition is therefore fragmented and mostly indirect — the market is essentially unserved as a product category.",
+    "players": [
+      ["Large (Ansys/Synopsys, COMSOL, Dassault SIMULIA CST, Siemens, AVEVA/AspenTech)", "general EM/multiphysics suites and generic process digital-twin/APC platforms; not microwave-operation specific", "~70-80% of EM-simulation spend sits with generalist vendors, but ~0% purpose-built for MW-machine operators"],
+      ["Medium (QWED/QuickWave, solid-state retrofit vendors e.g. RFHIC/LEANFA/SAIREM/Muegge service, specialist MW consultancies)", "microwave-heating-capable FDTD simulation, closed-loop/solid-state upgrades, engineering services", "~10-20% niche"],
+      ["Small (independent microwave consultants, university spin-offs, open-source openEMS/MEEP users)", "one-off simulation studies, dielectric measurement services, custom in-house models", "~5-10%"]
+    ],
+    "regulation": [
+      ["IEC/EN 60519-6", "International/EU", "Safety standard for industrial electroheating installations using HF/microwave energy (3 MHz-300 GHz): any retrofit or operating-point change must keep leakage and interlock compliance — a simulation product can support re-verification"],
+      ["CISPR 11 / EN 55011", "International/EU (EMC)", "Limits RF disturbance emissions from ISM equipment; changing operating frequency/power or adding solid-state sources requires re-assessment of emissions — simulation of leakage/harmonics is directly relevant"],
+      ["ITU Radio Regulations ISM bands", "Global, region-dependent", "Microwave process equipment effectively restricted to ISM frequencies (e.g., 915 MHz mainly Region 2, 2.45 GHz worldwide); regional frequency differences constrain which optimization levers (frequency tuning) are legal per market"],
+      ["Directive 2013/35/EU (EMF worker exposure)", "EU", "Sets minimum health/safety requirements for worker exposure to electromagnetic fields; stronger field coupling near machines must be checked when processes are re-tuned"],
+      ["Machinery Directive 2006/42/EC", "EU", "Substantial modification of installed microwave machines (retrofit generators, applicator changes) can trigger re-certification obligations"]
+    ]
+  },
+  "tech_baseline": {
+    "technologies": [
+      {
+        "name": "Multiphysics EM-thermal co-simulation (COMSOL RF+Heat Transfer, Ansys HFSS+thermal, CST Studio)",
+        "how": "Full-wave frequency- or time-domain EM solver coupled to heat transfer, iterated as dielectric properties change with temperature; used offline to test what-if scenarios (load geometry, power level, belt position).",
+        "performance": "Experimentally validated for applicators (e.g., 915 MHz waveguide vs thermocouple data); single cavity runs take minutes-hours, full parametric sweeps days; expert setup effort measured in engineer-weeks",
+        "limits": "Requires scarce EM expertise + expensive seats ($10-70k); accuracy collapses without temperature-dependent dielectric data for the actual product; does not connect to machine telemetry — it is a study tool, not an operations tool"
+      },
+      {
+        "name": "Dedicated microwave-heating FDTD simulation (QWED QuickWave + Basic Heating Module)",
+        "how": "FDTD co-simulation with temperature-/enthalpy-dependent media, moving/rotating loads, source-frequency tuning and source switching — the only commercial solver family purpose-built for microwave heating.",
+        "performance": "Handles realistic process features (conveyor motion, load rotation, thermal runaway); runs on workstations; smaller vendor so limited global support footprint",
+        "limits": "Still an engineering tool needing trained users and per-material dielectric input; no built-in library of operator-facing KPIs or machine templates; minimal presence outside specialist circles"
+      },
+      {
+        "name": "Generic process digital twins / APC platforms (AVEVA, AspenTech, Siemens, Yokogawa)",
+        "how": "Plant-data-driven models, energy dashboards and advanced process control applied to thermal lines; the microwave unit treated as a black-box actuator.",
+        "performance": "Process digital-twin market ~$2.6B (2025) growing ~31%/yr; proven for furnaces/dryers; delivers ~5-15% typical energy savings in conventional thermal processes",
+        "limits": "Cannot model EM field distribution, hot spots or dielectric coupling — the very phenomena that determine microwave efficiency; treat the microwave stage as unmodelled equipment"
+      },
+      {
+        "name": "Solid-state microwave generators with closed-loop control (RFHIC GaN, LEANFA/RFMW, SAIREM, Muegge)",
+        "how": "Replace/retrofit magnetrons with LDMOS/GaN amplifiers enabling real-time control of power, frequency and phase, often fed by reflected-power sensing.",
+        "performance": "Solid-state systems claim >70% efficiency vs ~45-50% for magnetrons and >15-yr device life vs ~5,000-h magnetron warranty; enable automatic power matching under load variation",
+        "limits": "Hardware capex, not software; benefits materialize only when combined with an operating model telling it what to do; retrofit business case still developing"
+      },
+      {
+        "name": "Incumbent baseline: operator heuristics + OEM service contracts + trial-and-error",
+        "how": "Operators tune power/belt speed/recipe empirically; OEMs provide occasional optimization visits; universities/consultants run one-off studies.",
+        "performance": "Zero software cost but leaves 10-30% energy/quality upside unrealized; microwave drying studies report up to ~30% energy savings and up to ~80% shorter drying times vs conventional tunnels when properly optimized",
+        "limits": "Knowledge leaves with retiring specialists; empiricism cannot see inside the cavity (hot spots, arcing risk, runaway); inconsistent across batches/materials"
+      }
+    ],
+    "why_better_text": "Incumbents fail this hypothesis in two directions: generalist EM tools can compute the physics but require experts the operators do not employ, and generic digital-twin platforms reach the operator but are blind to microwave physics. A domain-focused tool built on ProSeed's microwave know-how — pre-modelled machine/applicator templates, a validated dielectric database, and operator-facing KPIs (energy per kg product, uniformity index, runaway margin) — can deliver simulation-driven setpoint optimization without requiring an RF engineer on staff. ProSeed can also pair the software with retrofit sensing (reflected-power, temperature) so models self-calibrate on the real machine, something neither simulation vendors nor twin platforms currently do.",
+    "key_assumptions": [
+      "Global installed base of industrial microwave process machines is ~10^4-10^5 units (assumed; anchored to ~$1.4-1.6B/yr equipment sales and SAIREM's disclosed ~5,000 installed machines alone)",
+      "Industrial microwaves in Europe consume ~9.6 TWh/yr and typical magnetron systems run at ~45-50% wall-to-load efficiency vs >70% claimed for solid-state (measured, EU H2020 CLEAN-HEAT)",
+      "Realistic efficiency/quality gain from simulation-guided operation is ~10-30% energy and less scrap/hot-spot damage (assumed; supported by reported ~30% tunnel-dryer savings and dielectric-sensitivity literature)",
+      "Operators will not hire RF specialists: product must be usable by process engineers, which caps acceptable complexity (assumed)",
+      "Per-site value requires measured dielectric/thermal data of the actual product — a service-heavy calibration step that limits pure-SaaS scalability (assumed, consistent with literature emphasis on temperature-dependent dielectric data scarcity)"
+    ]
+  },
+  "sources": [
+    { "claim": "Industrial microwave heating equipment market ~$1.4B (2025), $2.3B by 2033, Asia Pacific ~35% share", "url": "https://www.grandviewresearch.com/industry-analysis/industrial-microwave-heating-equipment-market" },
+    { "claim": "Market ~$1.63B (2025) to $2.15B (2034); player list incl. CPI, Ferrite, Hitachi, Kerone, Muegge, Richardson, Thermex, e2v", "url": "https://www.theinsightpartners.com/reports/industrial-microwave-heating-equipment-market" },
+    { "claim": "Key players and fragmented competitive landscape of industrial microwave heating equipment", "url": "https://www.industryarc.com/research/industrial-microwave-heating-equipment-market-research-505844" },
+    { "claim": "SAIREM: 45+ years, ~5,000 machines installed, 70+ countries", "url": "https://www.sairem.com/microwave-radiofrequency-equipment/industrial-machines/" },
+    { "claim": "Process digital twin market $2.56B (2025) to $9.95B (2030), ~31% CAGR; vendor list IBM, GE, AVEVA-like, Siemens, Ansys", "url": "https://www.giiresearch.com/report/tbrc2009746-process-digital-twin-global-market-report.html" },
+    { "claim": "Magnetron efficiency ~45-50%, solid-state >70%; Europe microwaves consume ~9.6 TWh/yr; auto power matching vs load variation", "url": "https://cordis.europa.eu/project/id/666488" },
+    { "claim": "Magnetron ~5,000-h warranty vs transistor >15-yr life; no control of power/frequency/phase on magnetrons", "url": "https://www.everythingrf.com/community/industrial-heating-applications-look-to-solid-state-devices-to-improve-reliability-and-effectiveness-and-save-space" },
+    { "claim": "Solid-state adoption in less cost-sensitive industrial RF heating; 30 kW GaN generator at 900-930 MHz example", "url": "https://www.microwavejournal.com/articles/41891-emerging-microwave-heating-applications-incorporate-solid-state-semiconductors" },
+    { "claim": "Microwave drying: ~70% of MW power absorbed by product, drying time reductions up to ~80%, equipment up to ~90% smaller; non-uniform heating is the key challenge", "url": "https://link.springer.com/article/10.1007/s12393-025-09426-5" },
+    { "claim": "Tunnel microwave drying machines $455M (2025); buyers cite ~30% energy savings vs conventional thermal drying", "url": "https://pmarketresearch.com/worldwide-tunnel-microwave-drying-machine-market-research/" },
+    { "claim": "IEC/EN 60519-6 scope: safety requirements for industrial HF/microwave heating equipment 3 MHz-300 GHz", "url": "https://www.evs.ee/en/evs-en-iec-60519-6-2024" },
+    { "claim": "CISPR 11/EN 55011 emission limits for ISM RF equipment; site assessment provisions", "url": "https://webstore.ansi.org/preview-pages/IEC/preview_cispr11%7Bed7.0%7Db.pdf" },
+    { "claim": "ITU-R SM.1056: ISM applications list and radiation limits; industrial microwave uses (lumber/veneer drying, food tempering, rubber vulcanization, paper drying, pharma processing)", "url": "https://www.itu.int/dms_pubrec/itu-r/rec/sm/R-REC-SM.1056-0-199407-S!!PDF-E.pdf" },
+    { "claim": "QuickWave Basic Heating Module: temperature-dependent media, moving/rotating loads, source frequency tuning for MW heating co-simulation", "url": "https://qwed.eu/quickwave/basic-heating-module/" },
+    { "claim": "CalNEXT industrial microwave market study: barriers = cost, process-flow integration, knowledge/awareness; TRLs across food, chemicals, metallurgy", "url": "https://calnext.com/wp-content/uploads/2024/11/ET23SWE0070_Industrial-Microwave-Technologies-Market-Study_Final-Report.pdf" },
+    { "claim": "Thermal runaway and hot spots driven by temperature-dependent dielectric properties limit MW heating reliability", "url": "https://users.wpi.edu/%7Evadim/AMPERE-2011-125.pdf" }
+  ]
+}
