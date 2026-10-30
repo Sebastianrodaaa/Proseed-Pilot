@@ -30,9 +30,9 @@ Nothing. This is the entry point — bring what you know about the technology an
 
 ## Deliverable
 
-**One filled document per hypothesis.** Copy `templates/attachment_202610_1_Hypothesis_Problem_Template.dotx` to `proseed/01-problem-hypotheses/<hypothesis-slug>.docx` and fill it, replacing each `[Remove when filled]` guidance block with content. Keep the template's structure exactly — including the **Personal input** sign-off (name, date) and the **Decision** checkboxes (☐ Go to next step / ☐ Rework / ☐ Drop the hypothesis).
+**One filled document per hypothesis.** Copy `templates/attachment_202610_1_Hypothesis_Problem_Template.dotx` to `proseed/01-problem-hypotheses/<hypothesis-slug>.pdf` — the deliverable is a filled PDF produced from the template. Keep the template's structure exactly — including the **Personal input** sign-off (name, date) and the **Decision** checkboxes (☐ Go to next step / ☐ Rework / ☐ Drop the hypothesis).
 
-A `.dotx` is a Word template: copy it to `.docx` and edit with Word, LibreOffice, or `python-docx`. Note: `python-docx` refuses `.dotx` directly — after copying to `.docx`, patch `[Content_Types].xml` inside the zip, replacing `template.main+xml` with `document.main+xml`.
+Generation path: copy the `.dotx` to a working `.docx` (patch `[Content_Types].xml` inside the zip, replacing `template.main+xml` with `document.main+xml` — `python-docx` refuses `.dotx` directly), fill it, then render to `.pdf` with `scripts/docx_to_pdf.py`. The `.docx` stays as the editable master for rework decisions.
 
 Also write `proseed/01-problem-hypotheses/problem-hypotheses.md` — the ranked list of all hypotheses, each linking to its document, so parallel Step-2 work can pick them up.
 

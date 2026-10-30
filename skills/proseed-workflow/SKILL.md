@@ -101,7 +101,7 @@ proseed/
 
 Each step skill names its deliverable file. Steps that run **per hypothesis** (1, 2a, 2b, and later fan-out work) produce **one filled template document per hypothesis** — not one merged report.
 
-Where a `.dotx` template exists in the skill's `templates/` directory: copy it to `.docx`, replace every `[Remove when filled]` guidance block with content, and keep the structure exactly — including the **Personal input** sign-off (who did the work, when) and the **Decision** checkboxes (☐ Go to next step / ☐ Rework / ☐ Drop the hypothesis). That Decision block is a per-hypothesis micro-gate at every step; fill it honestly — "drop" is a legitimate outcome that stops wasted work downstream.
+Where a `.dotx` template exists in the skill's `templates/` directory: copy it to a working `.docx`, replace every `[Remove when filled]` guidance block with content, keep the structure exactly — including the **Personal input** sign-off and the **Decision** checkboxes — then render the deliverable as **`.pdf`** (`scripts/docx_to_pdf.py` or Word/Pages export). The `.docx` stays as the editable master for rework decisions. That Decision block is a per-hypothesis micro-gate at every step; fill it honestly — "drop" is a legitimate outcome that stops wasted work downstream.
 
 **Sources travel with claims.** Every market size, competitor spec, price point, and performance number carries a citation inside the deliverable. A sourced claim that turns out wrong is useful; an unsourced claim is a guess wearing a costume.
 
@@ -131,6 +131,27 @@ Where a `.dotx` template exists in the skill's `templates/` directory: copy it t
 ## Iteration log
 <7a↔7b rounds, Step-16 feedback loops, what changed each round>
 ```
+
+## PORTFOLIO.md — the multi-hypothesis board
+
+`STATUS.md` tracks the live workstream; `proseed/PORTFOLIO.md` tracks the **whole slate**. Hypotheses move through the process at different speeds — one can be at Step 15 while others sit parked at Step 2. Update the portfolio whenever a hypothesis changes step or status, and whenever a micro-gate Decision is marked.
+
+```markdown
+# ProSeed Portfolio — <project name>
+
+| Hypothesis | Step | Status | Note |
+|------------|------|--------|------|
+| H1 — <short name> | 2b | Live | one line of context |
+| H2 — <short name> | — | Parked | why it's waiting |
+
+## Dropped
+| Hypothesis | Dropped at | Reason (evidence) | Date |
+|------------|-----------|--------------------|------|
+```
+
+**Status values:** `Live` (actively being worked), `Parked` (deliverables exist, waiting on capacity or a decision), `Dropped` (killed by evidence — move to the Dropped table).
+
+**The drop log is organizational memory.** Record where each hypothesis died, the evidence that killed it, and the date. It stops the company re-testing dead ideas a year later — a parked hypothesis can always come back, a dropped one needs new evidence first.
 
 ## Locating Yourself Mid-Flight
 

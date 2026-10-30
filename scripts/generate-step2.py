@@ -287,22 +287,21 @@ def gen_2b(data):
 def main():
     os.makedirs(OUT_2A, exist_ok=True)
     os.makedirs(OUT_2B, exist_ok=True)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from docx_to_pdf import convert
     slugs = sys.argv[1:]
     files = sorted(glob.glob(os.path.join(RESEARCH, "*.json")))
     for f in files:
         data = json.load(open(f))
         if slugs and data["slug"] not in slugs:
             continue
-        try:
-            a = gen_2a(data)
-            print("2a:", os.path.relpath(a, ROOT))
-        except Exception as e:
-            print(f"2a FAIL {data['slug']}: {e}")
-        try:
-            b = gen_2b(data)
-            print("2b:", os.path.relpath(b, ROOT))
-        except Exception as e:
-            print(f"2b FAIL {data['slug']}: {e}")
+        for gen, tag in ((gen_2a, "2a"), (gen_2b, "2b")):
+            try:
+                docx_path = gen(data)
+                pdf_path = convert(docx_path)
+                print(f"{tag}: {os.path.relpath(pdf_path, ROOT)}")
+            except Exception as e:
+                print(f"{tag} FAIL {data['slug']}: {e}")
 
 
 if __name__ == "__main__":

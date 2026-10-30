@@ -26,9 +26,9 @@ Kill or deprioritize hypotheses whose market is too small, unreachable, or legal
 
 ## Deliverable
 
-**One filled document per hypothesis.** Copy `templates/attachment_202610_2a_Market_Scan_Template_.dotx` to `proseed/02a-market-scan/<hypothesis-slug>-market-scan.docx` and fill it, replacing each `[Remove when filled]` guidance block. Keep the template's structure exactly — including the **Personal input** sign-off and the **Decision** checkboxes (☐ Go to next step / ☐ Rework / ☐ Drop the hypothesis).
+**One filled document per hypothesis.** Copy `templates/attachment_202610_2a_Market_Scan_Template_.dotx` to `proseed/02a-market-scan/<hypothesis-slug>-market-scan.pdf` — the deliverable is a filled PDF produced from the template. Keep the template's structure exactly — including the **Personal input** sign-off and the **Decision** checkboxes (☐ Go to next step / ☐ Rework / ☐ Drop the hypothesis).
 
-A `.dotx` is a Word template: copy it to `.docx` and edit with Word, LibreOffice, or `python-docx`. Note: `python-docx` refuses `.dotx` directly — after copying to `.docx`, patch `[Content_Types].xml` inside the zip, replacing `template.main+xml` with `document.main+xml`.
+Generation path: copy the `.dotx` to a working `.docx` (patch `[Content_Types].xml` inside the zip, replacing `template.main+xml` with `document.main+xml` — `python-docx` refuses `.dotx` directly), fill it, then render to `.pdf` with `scripts/docx_to_pdf.py`. The `.docx` stays as the editable master for rework decisions.
 
 Also write `proseed/02a-market-scan/market-scan.md` — the cross-hypothesis ranking of which markets hold up and which died, with links to each document.
 

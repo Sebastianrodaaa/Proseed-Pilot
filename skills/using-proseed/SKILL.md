@@ -34,9 +34,9 @@ Then announce "Using proseed:[skill] to [purpose]" and follow the skill exactly.
 
 The process is stateful and can span months. Do not guess your position:
 
-1. Look for `proseed/STATUS.md` in the working directory. It records the current step, completed steps, decision outcomes, and iteration rounds.
-2. If it exists, read it, then invoke the skill for the current step.
-3. If it does not exist, invoke `proseed:proseed-workflow` — it shows the full map, helps you locate your position from the evidence that exists, and initializes `proseed/STATUS.md`.
+1. Look for `proseed/STATUS.md` (the live workstream) and `proseed/PORTFOLIO.md` (the whole hypothesis slate) in the working directory.
+2. If they exist, read them, then invoke the skill for the current step.
+3. If they don't, invoke `proseed:proseed-workflow` — it shows the full map, helps you locate your position from the evidence that exists, and initializes both files.
 
 ## Skill Priority
 

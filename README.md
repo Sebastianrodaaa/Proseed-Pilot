@@ -17,7 +17,7 @@
 ![License](https://img.shields.io/badge/license-Proprietary-red)
 ![Claude Plugin](https://img.shields.io/badge/Claude-plugin-blueviolet)
 ![Devin Plugin](https://img.shields.io/badge/Devin-plugin-blueviolet)
-![Skills](https://img.shields.io/badge/skills-23-green)
+![Skills](https://img.shields.io/badge/skills-24-green)
 ![Harness](https://img.shields.io/badge/harness-agnostic-lightgrey)
 
 `hypothesis-validation` · `industrial-innovation` · `deep-tech` · `customer-discovery` · `value-proposition` · `unit-economics` · `commercialization` · `agent-workflow`
@@ -31,13 +31,12 @@ agent follows the process, the plugin injects the process rules at session start
 project position in a `STATUS.md` ledger, and routes every piece of work through the skill
 for the step you're actually on.
 
-Architecture is modeled on [obra/superpowers](https://github.com/obra/superpowers):
-a session-start hook injects a bootstrap skill, and every step of the methodology is a
-skill the agent must invoke before doing the work.
+Architecture: a session-start hook injects a bootstrap skill, and every step of the
+methodology is a skill the agent must invoke before doing the work.
 
 **Two kinds of output per step:**
 
-- **`.docx` deliverables** — the human-facing documents (from `.dotx` templates where provided), with sign-off and a per-hypothesis micro-gate: *Go to next step / Rework / Drop*.
+- **`.pdf` deliverables** — the human-facing documents (from `.dotx` templates where provided, via a `.docx` working file), with sign-off and a per-hypothesis micro-gate: *Go to next step / Rework / Drop*.
 - **A canonical `.md` hand-off** — the machine-readable summary the next step consumes (`feasibility-report.md`, `customer-requirements.md`, `decision-gate.md`, …).
 
 ## How It Works
@@ -48,7 +47,7 @@ flowchart LR
         HOOK["SessionStart hook<br/>hooks/session-start"]
         BOOT["using-proseed<br/>bootstrap skill"]
         NAV["proseed-workflow<br/>navigator skill"]
-        STEPS["21 step skills<br/>one per process step"]
+        STEPS["22 step skills<br/>one per process step"]
         HOOK -->|injects as context| BOOT
         BOOT -->|"where are we?"| NAV
         NAV -->|invoke before doing work| STEPS
@@ -124,9 +123,9 @@ flowchart TD
 
 | # | Step | Owner | Skill | Hand-off artifact |
 |---|------|-------|-------|-------------------|
-| 1 | Problem hypotheses | Together | `proseed:problem-hypotheses` | `01-problem-hypotheses/` → `problem-hypotheses.md` + per-hypothesis `.docx` |
-| 2a | Market scan | Commercial | `proseed:market-scan` | `02a-market-scan/` → `market-scan.md` + per-hypothesis `.docx` |
-| 2b | Tech baseline | Technical | `proseed:tech-baseline` | `02b-tech-baseline/` → `tech-baseline.md` + per-hypothesis `.docx` |
+| 1 | Problem hypotheses | Together | `proseed:problem-hypotheses` | `01-problem-hypotheses/` → `problem-hypotheses.md` + per-hypothesis `.pdf` |
+| 2a | Market scan | Commercial | `proseed:market-scan` | `02a-market-scan/` → `market-scan.md` + per-hypothesis `.pdf` |
+| 2b | Tech baseline | Technical | `proseed:tech-baseline` | `02b-tech-baseline/` → `tech-baseline.md` + per-hypothesis `.pdf` |
 | 3 | Customer discovery | Commercial | `proseed:customer-discovery` | `03-customer-discovery/` → `discovery-synthesis.md` + transcripts |
 | 4 | Solution concept | Technical | `proseed:solution-concept` | `04-concept/concept-one-pager.md` |
 | 5a | Feasibility | Technical | `proseed:feasibility` | `05a-feasibility/feasibility-report.md` |
@@ -160,7 +159,8 @@ claude plugin install proseed@proseed-dev
 
 You don't invoke steps by hand — the plugin positions itself:
 
-1. Open a session in your project directory. The hook injects the rules.
+1. Open a session in your project directory. The hook injects the rules — and, when a
+   `proseed/` workspace exists, the current position from `STATUS.md` and `PORTFOLIO.md`.
 2. Ask the agent to work on validation ("run the market scan for H3", "where are we?").
 3. The agent reads `proseed/STATUS.md` — or invokes `proseed:proseed-workflow` to
    initialize it — then invokes the current step's skill and produces the deliverable
@@ -168,14 +168,18 @@ You don't invoke steps by hand — the plugin positions itself:
 4. Position advances as deliverables land. The gate, the 7a↔7b loop, and the Step-16
    version loop are enforced by the workflow skill.
 
+Slash commands when you want explicit buttons: `/proseed:status` (where are we),
+`/proseed:next` (run the next step), `/proseed:gate` (run the move-forward decision).
+
 ### Artifact conventions
 
 | Convention | Rule |
 |------------|------|
-| `proseed/STATUS.md` | Single source of truth for position — current step, completed table, gate outcome, iteration log, version |
-| `proseed/NN-<step>/` | One directory per step; per-hypothesis steps produce one `.docx` each |
+| `proseed/STATUS.md` | Single source of truth for the live workstream — current step, completed table, gate outcome, iteration log, version |
+| `proseed/PORTFOLIO.md` | The whole slate — hypothesis × step board plus the drop log (where each hypothesis died, why, when) |
+| `proseed/NN-<step>/` | One directory per step; per-hypothesis steps produce one `.pdf` each |
 | Canonical `.md` hand-off | Every step writes one named markdown file that downstream skills consume by name |
-| `.dotx` templates | Copied to `.docx` and filled — keep structure, sign-off, and Decision checkboxes |
+| `.dotx` templates | Copied to a working `.docx`, filled, rendered to `.pdf` — keep structure, sign-off, and Decision checkboxes |
 | Sources | Every number carries a citation inside the deliverable — unsourced claims get marked as assumptions |
 
 ## Step Execution (Level-1 DFD)
@@ -203,9 +207,10 @@ flowchart LR
 | `hooks/` | `hooks.json`, `run-hook.cmd` (cross-platform polyglot), `session-start` (context injection, adapts output per harness) |
 | `skills/using-proseed/` | Bootstrap skill — the meta-rules injected at session start |
 | `skills/proseed-workflow/` | Master map, `STATUS.md` convention, routing table, `references/` source doc |
-| `skills/<20 step skills>/` | One directory per process step: `SKILL.md` + `templates/` |
+| `skills/<22 step skills>/` | One directory per process step: `SKILL.md` + `templates/` |
+| `commands/` | Slash commands: `status`, `next`, `gate` |
 | `docs/` | Source workflow document |
-| `proseed/` | Pilot run — full 16-step loop exercised on the Q4 2026 slate (workflow test; simulated content labeled) |
+| `proseed/` | Pilot run — full 16-step loop exercised on the Q4 2026 slate |
 | `scripts/` | Pilot tooling — generates step-2 `.docx` from research JSON |
 | `tests/` | Structural test suite |
 

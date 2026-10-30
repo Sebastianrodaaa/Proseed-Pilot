@@ -50,8 +50,19 @@ done
 [ -x hooks/session-start ] || fail "hooks/session-start not executable"
 grep -q 'using-proseed/SKILL.md' hooks/session-start \
   || fail "session-start does not inject using-proseed"
+grep -q 'proseed/STATUS.md' hooks/session-start \
+  || fail "session-start does not inject STATUS.md position"
+grep -q 'proseed/PORTFOLIO.md' hooks/session-start \
+  || fail "session-start does not inject PORTFOLIO.md position"
 grep -q 'run-hook.cmd' hooks/hooks.json \
   || fail "hooks.json does not invoke run-hook.cmd"
+
+# --- Slash commands ------------------------------------------------------------
+for cmd in status next gate; do
+  [ -f "commands/$cmd.md" ] || fail "missing commands/$cmd.md"
+  grep -q '^description:' "commands/$cmd.md" \
+    || fail "commands/$cmd.md missing description frontmatter"
+done
 
 # --- Workflow reference doc + provided deliverable templates ------------------
 [ -f skills/proseed-workflow/references/proseed-hypothesis-validation-workflow.md ] \
